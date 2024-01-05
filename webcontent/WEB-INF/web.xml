@@ -41,12 +41,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>HomePage</display-name>
-    <servlet-name>HomePage</servlet-name>
-    <servlet-class>Pages.HomePage</servlet-class>
+    <display-name>Home</display-name>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>Pages.Home</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HomePage</servlet-name>
+    <servlet-name>Home</servlet-name>
     <url-pattern>/HomePage</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -148,5 +148,15 @@
   <servlet-mapping>
     <servlet-name>UpdateBlog</servlet-name>
     <url-pattern>/UpdateBlog</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Profile</display-name>
+    <servlet-name>Profile</servlet-name>
+    <servlet-class>Pages.Profile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Profile</servlet-name>
+    <url-pattern>/Profile</url-pattern>
   </servlet-mapping>
 </web-app>

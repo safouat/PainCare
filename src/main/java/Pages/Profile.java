@@ -17,8 +17,8 @@ import Health.PainTrackParamDaoImpl;
 import User.UserBean;
 import User.UserDaoImpl;
 
-@WebServlet("/home")
-public class HomePage extends HttpServlet {
+@WebServlet("/profile")
+public class Profile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDaoImpl userDAO;
 	private DiagnosticDaoImpl diagnosticDAO;
@@ -33,6 +33,10 @@ public class HomePage extends HttpServlet {
 		this.painTrackParamDAO = daoFactory.getPainTrackParamDAO();
 	}
 	
+    public Profile() {
+        super();
+    }
+    
 	private String mapToJsonString(Map<String, Integer> map) {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
@@ -66,10 +70,6 @@ public class HomePage extends HttpServlet {
         sb.append("]");
         return sb.toString();
     }
-       
-    public HomePage() {
-        super();
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean userBean = userDAO.auth(request);
@@ -100,7 +100,7 @@ public class HomePage extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/views/users/profile.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
