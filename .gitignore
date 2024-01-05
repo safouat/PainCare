@@ -1,0 +1,12 @@
+/build
+/bin
+/target
+
+/src/main/java/Database/db.properties
+
+.classpath
+.project
+.settings
+
+.metadata
+
