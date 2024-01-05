@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@include file="/WEB-INF/comps/header.jsp" %>
+<%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
 
 <div class="container mt-3">
     <div class="row">
@@ -141,4 +141,4 @@
     })
 </script>
 
-<%@include file="/WEB-INF/comps/footer.jsp" %>
+<%@include file="/WEB-INF/comps/dashboard/footer.jsp" %>
