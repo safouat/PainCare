@@ -21,7 +21,7 @@ CREATE TABLE paintrackparams (
 	paintrack_id INT NOT NULL,
 	param VARCHAR(100) NOT NULL,
 	value VARCHAR(100) NOT NULL
-)
+);
 
 -- Create Diagnostic table
 CREATE TABLE diagnostics (
@@ -45,7 +45,7 @@ CREATE TABLE comments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     date TIMESTAMP DEFAULT NOW(),
     content TEXT NOT NULL,
-    blog_id INT NOT NULL
+    blog_id INT NOT NULL,
     user_id INT NOT NULL
 );
 

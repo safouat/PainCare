@@ -12,42 +12,73 @@
                 <i class="icon-bar"></i>
             </div>
             <nav class="main-menu navbar-expand-md navbar-light">
-                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                    <ul class="navigation scroll-nav clearfix">
-                        <li class="current"><a href="index.html">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#symptoms">Symptoms</a></li>
-                        <li><a href="#prevention">Prevention</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li class="dropdown"><a href="index.html">News</a>
-                            <ul>
-                                <li><a href="blog-1.html">Blog Grid</a></li>
-                                <li><a href="blog-2.html">Blog Sidebar</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+				<div class="collapse navbar-collapse show clearfix"
+					style="margin-right: 3em !important" id="navbarSupportedContent">
+					<ul class="navigation scroll-nav clearfix"
+						style="margin-left: -50% !important">
+						<li class="current"><a href="index.html">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#symptoms">Symptoms</a></li>
+						<li><a href="#prevention">Prevention</a></li>
+						<li><a href="#faq">FAQ</a></li>
+						<li class="dropdown"><a href="index.html">News</a>
+							<ul>
+								<li><a href="blog-1.html">Blog Grid</a></li>
+								<li><a href="blog-2.html">Blog Sidebar</a></li>
+								<li><a href="blog-details.html">Blog Details</a></li>
+							</ul></li>
+						<c:if test="${not empty userBean}">
+							<div class="dropdown "
+								style="margin-right: 10em !important; margin-left: -70px;">
+								<button class=" btn dropdown-toggle " style="  outline: none !important;
+  box-shadow: none !important;"
+									type="button" id="dropdownMenu2" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">
+									<div class="avatar" style="display: inline-block;">
+										<c:if test="${not empty userBean.getAvatar()}">
+											<img width="50" height="50" src="${userBean.getAvatar()}"
+												class="logo rounded-circle" alt="Logo">
+										</c:if>
+										<c:if test="${empty userBean.getAvatar()}">
+											<img width="50" height="50" src="assets/images/logo.png"
+												class="logo  rounded-circle " alt="Logo">
+										</c:if>
+										${userBean.getName()}
+								</button>
+																    
+								
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+								<button class="dropdown-item" type="button">Dashboard</button>
+								<button class="dropdown-item border-bottom" type="button">Another
+									action</button>
+								<a href="PainCare/Logout" class="dropdown-item" type="button">Logout</a>
+							</div>
+							</div>
+
+						</div>
+				</c:if>
+						<c:if test="${empty userBean}">
+								<a href="login" class="btn-box">
+									<button class="btn theme-btn">Login</button>
+								</a>
+							</c:if>
+					</ul>
                 </div>
             </nav>
-            <div class="btn-box">
-                <a href="index.html" class="theme-btn"><i class="fas fa-phone"></i>Emergency Call</a>
-            </div>
-        </div>
+		</div>
     </div>
 
     <!--sticky Header-->
     <div class="sticky-header">
         <div class="outer-box clearfix">
             <div class="logo-box pull-left">
-                <figure class="logo"><a href="index.html"><img src="assets/images/small-logo.png" alt=""></a></figure>
+                <figure class="logo"><a href="index.html"><img width="75" height="75" src="assets/images/logo.png"
+											class="logo" alt="Logo"></a></figure>
             </div>
             <div class="menu-area pull-right">
                 <nav class="main-menu clearfix">
                     <!--Keep This Empty / Menu will come through Javascript-->
                 </nav>
-                <div class="btn-box">
-                    <a href="index.html" class="theme-btn"><i class="fas fa-phone"></i>Emergency Call</a>
-                </div>
             </div>
         </div>
     </div>

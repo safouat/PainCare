@@ -30,8 +30,11 @@
 			<label for="password2">Confirm Password :</label>
 			<input name="password2" type="password" class="form-control" id="password2" placeholder="Password">
 		</div>
-		
-		<button type="submit" class="my-3 btn btn-primary block w-100">Sign in</button>
+			<div class="more-btn centred">
+				<button class="theme-btn" type="submit">
+					Registre
+				</button>
+			</div>
 	</form>
 	
 </div>
