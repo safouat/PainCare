@@ -2,7 +2,7 @@
 <header class="main-header">
     <div class="outer-box clearfix">
         <div class="logo-box pull-left">
-            <figure class="logo"><a href="index.html"><img width="70" src="assets/images/logo.png" alt=""></a></figure>
+            <figure class="logo"><a href="index.html"><img style="height: 60px" src="assets/images/logo-full.png" alt=""></a></figure>
         </div>
         <div class="menu-area pull-right">
             <!--Mobile Navigation Toggler-->
@@ -12,10 +12,8 @@
                 <i class="icon-bar"></i>
             </div>
             <nav class="main-menu navbar-expand-md navbar-light">
-				<div class="collapse navbar-collapse show clearfix"
-					style="margin-right: 3em !important" id="navbarSupportedContent">
-					<ul class="navigation scroll-nav clearfix"
-						style="margin-left: -50% !important">
+				<div class="collapse navbar-collapse show clearfix d-flex" id="navbarSupportedContent">
+					<ul class="navigation scroll-nav clearfix">
 						<li class="current"><a href="index.html">Home</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#symptoms">Symptoms</a></li>
@@ -26,43 +24,45 @@
 								<li><a href="blog-1.html">Blog Grid</a></li>
 								<li><a href="blog-2.html">Blog Sidebar</a></li>
 								<li><a href="blog-details.html">Blog Details</a></li>
-							</ul></li>
-						<c:if test="${not empty userBean}">
-							<div class="dropdown "
-								style="margin-right: 10em !important; margin-left: -70px;">
-								<button class=" btn dropdown-toggle " style="  outline: none !important;
-  box-shadow: none !important;"
-									type="button" id="dropdownMenu2" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">
-									<div class="avatar" style="display: inline-block;">
-										<c:if test="${not empty userBean.getAvatar()}">
-											<img width="50" height="50" src="${userBean.getAvatar()}"
-												class="logo rounded-circle" alt="Logo">
-										</c:if>
-										<c:if test="${empty userBean.getAvatar()}">
-											<img width="50" height="50" src="assets/images/logo.png"
-												class="logo  rounded-circle " alt="Logo">
-										</c:if>
-										${userBean.getName()}
-								</button>
-																    
-								
-								<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-								<button class="dropdown-item" type="button">Dashboard</button>
-								<button class="dropdown-item border-bottom" type="button">Another
-									action</button>
-								<a href="PainCare/Logout" class="dropdown-item" type="button">Logout</a>
-							</div>
-							</div>
-
-						</div>
-				</c:if>
-						<c:if test="${empty userBean}">
-								<a href="login" class="btn-box">
-									<button class="btn theme-btn">Login</button>
-								</a>
-							</c:if>
+							</ul>
+                        </li>
+                        <li>
+                            <c:if test="${not empty userBean}">
+                                <div class="dropdown">
+                                    <button class=" btn dropdown-toggle " style="  outline: none !important;box-shadow: none !important;"
+                                        type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <div class="avatar" style="display: inline-block; padding-top: 20px;">
+                                            <c:if test="${not empty userBean.getAvatar()}">
+                                                <img class="p-0" width="50" height="50" src="${userBean.getAvatar()}"
+                                                    class="logo rounded-circle" alt="Logo">
+                                            </c:if>
+                                            <c:if test="${empty userBean.getAvatar()}">
+                                                <img class="p-0" width="50" height="50" src="assets/images/logo-full.png"
+                                                    class="logo  rounded-circle " alt="Logo">
+                                            </c:if>
+                                            ${userBean.getName()}
+                                    </button>
+                                                                        
+                                    
+                                    <div style="min-width: 15vw;" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a href="profile" class="dropdown-item" type="button">Dashboard</a>
+                                        <a href="" class="dropdown-item" type="button">Another Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="logout" class="dropdown-item" type="button">Logout</a>
+                                    </div>
+                                </div>
+                            </c:if>
+                            
+                    
+                            <c:if test="${empty userBean}">
+                                <a href="login" class="btn-box p-0">
+                                    <button class="btn theme-btn">Login</button>
+                                </a>
+                            </c:if>
+                        </li>
 					</ul>
+                    
                 </div>
             </nav>
 		</div>
@@ -72,7 +72,7 @@
     <div class="sticky-header">
         <div class="outer-box clearfix">
             <div class="logo-box pull-left">
-                <figure class="logo"><a href="index.html"><img width="75" height="75" src="assets/images/logo.png"
+                <figure class="logo"><a href="index.html"><img class="p-0" style="height: 60px" src="assets/images/logo-full.png"
 											class="logo" alt="Logo"></a></figure>
             </div>
             <div class="menu-area pull-right">
@@ -120,7 +120,7 @@
                     <img width="75" height="75" src="${userBean.getAvatar()}" class="logo" alt="Logo">
                 </c:if>
                 <c:if test="${empty userBean.getAvatar()}">
-                    <img width="75" height="75" src="assets/images/logo.png" class="logo" alt="Logo">
+                    <img width="75" height="75" src="assets/images/logo-full.png" class="logo" alt="Logo">
                 </c:if>
             </div>
             <div class="user-name ">
