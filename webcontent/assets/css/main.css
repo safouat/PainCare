@@ -1,0 +1,51 @@
+.dashboard-content {
+    background-color: #f9f9f9;
+}
+
+.dashboard-side-bar {
+    min-width: 200px;
+    border-right: 1px solid #ccc;
+}
+
+.side-bar-links li a {
+    color: inherit;
+}
+
+.side-bar-links li a.active {
+    color: var(--main-color);
+}
+
+.user-avatar a {
+    color: var(--main-color);
+}
+
+.dashboard-action {
+    transition: all .25s ease;
+}
+
+.dashboard-action:nth-of-type(1):hover {
+    background-color: #007bff;
+    
+}
+
+.dashboard-action:nth-of-type(2):hover {
+    background-color: #a71d2a;
+    
+}
+
+.dashboard-action:nth-of-type(3):hover {
+    background-color: #19692c;
+    
+}
+
+.dashboard-action * {
+    transition: all .25s ease;
+}
+
+.dashboard-action:hover p, .dashboard-action:hover i {
+    color: #ddd;
+}
+
+.dashboard-action:hover h6 {
+    color: #ddd;
+}

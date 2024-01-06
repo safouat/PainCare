@@ -25,6 +25,7 @@
     <link href="assets/css/color.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
 
     <c:if test="${not empty css_links}">
         <c:forEach var="cssLink" items="${css_links}">

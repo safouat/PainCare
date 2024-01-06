@@ -4,15 +4,18 @@
 
 <div class="container mt-3">
     <div class="row">
-        <a href="diagnostic" class="col p-3 m-3 bg-primary-subtle border border-primary rounded cursor-pointer shadow-sm">
+        <a href="diagnostic" class="dashboard-action col p-3 m-3 text-primary border border-primary rounded cursor-pointer shadow-sm">
+            <i class="fas fa-stethoscope fa-3x mb-3"></i>
             <h6>Diagnostic test</h6>
             <p>Discover your potential endometriosis diagnostic</p>
         </a>
-        <a href="track_pain" class="col p-3 m-3 bg-danger-subtle border border-danger rounded cursor-pointer shadow-sm">
+        <a href="track_pain" class="dashboard-action col p-3 m-3 text-danger border border-danger rounded cursor-pointer shadow-sm">
+            <i class="fas fa-chart-line fa-3x mb-3"></i>
             <h6>Track pain</h6>
             <p>Explore your pain journey</p>
         </a>
-        <a href="blogs" class="col p-3 m-3 bg-success-subtle border border-success rounded cursor-pointer shadow-sm">
+        <a href="blogs" class="dashboard-action col p-3 m-3 text-success border border-success rounded cursor-pointer shadow-sm">
+            <i class="far fa-newspaper fa-3x mb-3"></i>
             <h6>Browse blogs</h6>
             <p>Expand your knowlege by browsing some health blogs</p>
         </a>
@@ -28,7 +31,7 @@
                     <bold class="mx-3">${diagnosticBean.calcResult()}</bold>
                 </div>
             </c:if>
-            <canvas class="mt-3" id="pain-level-chart"></canvas>
+            <canvas height="220" class="mt-3" id="pain-level-chart"></canvas>
         </div>
         <div class="col">
             <div class="row">
