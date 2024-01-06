@@ -3,7 +3,7 @@
 <c:set var="css_links" value="${['assets/css/form-page.css']}" />
 
 <%@include file="/WEB-INF/comps/header.jsp" %>
-
+<body>
 <div class="app-form-cnt container">
 
     <div class="text-center mb-3">
@@ -24,10 +24,14 @@
 			<label for="password">Password :</label>
 			<input name="password" type="password" class="form-control" id="password" placeholder="Password">
 		</div>
-		
-		<button type="submit" class="my-3 btn btn-primary block w-100">Sign in</button>
-	</form>
+			<div class="more-btn centred">
+				<button class="theme-btn" type="submit">
+					Sign in
+				</button>
+			</div>
+
+		</form>
 	
 </div>
-
+</body>
 <%@include file="/WEB-INF/comps/footer.jsp" %>

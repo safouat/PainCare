@@ -26,7 +26,7 @@ import User.UserDaoImpl;
 @WebServlet("/update_profile")
 @MultipartConfig
 public class Update extends HttpServlet {
-	private static final String WEB_CONTENT_DIR   = "C:/Users/A_El_Kaimouni/eclipse-workspace/PainCareWorkShop/webcontent/";
+	private static final String WEB_CONTENT_DIR   = "C:/Users/HP/eclipse-workspace/PainCare-main/webcontent/";
 	private static final String AVATARS_DIR = "assets/avatars/";
 	private static final long serialVersionUID = 1L;
 	private UserDaoImpl userDAO;
