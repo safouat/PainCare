@@ -29,7 +29,7 @@
                         <li>
                             <c:if test="${not empty userBean}">
                                 <div class="dropdown">
-                                    <button class=" btn dropdown-toggle " style="  outline: none !important;box-shadow: none !important;"
+                                    <button class=" btn dropdown-toggle p-0" style="  outline: none !important;box-shadow: none !important;"
                                         type="button" id="dropdownMenu2" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar" style="display: inline-block; padding-top: 20px;">

@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:set var="css_links" value="${['assets/css/form-page.css']}" />
+<c:set var="activePage" value="pain_track" />
 
-<%@include file="/WEB-INF/comps/header.jsp" %>
+<%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
 
 <div class="app-form-cnt container">
 
@@ -190,4 +190,4 @@
     });
 </script>
 
-<%@include file="/WEB-INF/comps/footer.jsp" %>
+<%@include file="/WEB-INF/comps/dashboard/footer.jsp" %>

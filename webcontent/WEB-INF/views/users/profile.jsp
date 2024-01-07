@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:set var="activePage" value="dashboard" />
+
 <%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
 
 <div class="container mt-3">

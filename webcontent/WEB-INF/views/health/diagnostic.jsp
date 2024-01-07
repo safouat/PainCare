@@ -1,13 +1,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:set var="css_links" value="${['assets/css/form-page.css']}" />
+<c:set var="activePage" value="diagnostic" />
 
-<%@include file="/WEB-INF/comps/header.jsp" %>
+<%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
 
-<div class="app-form-cnt container">
+<div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+    <div id="diagnstic-notaion" class="active">
+        <img src="assets/images/diagnostic.png" />
+        <p class="my-3">Do you suffer from painful period ? Take this questionnaire to find out your risk for endometriosis.</p>
+        <div class="more-btn">
+            <a href="javascript:void;">GO</a>
+        </div>
+    </div>
     <c:if test="${empty diagnosticBean}">
-        <form id="diagnostic-form" action="" method="POST">
-            <div id="diagnostic-panels">
+        <form class="d-flex flex-column h-100 w-100" id="diagnostic-form" action="" method="POST">
+            <div id="diagnostic-panels" class="flex-grow-1 d-flex justify-content-center align-items-center">
                 <c:forEach var="item" items="${questionsBank}" varStatus="loop">
                     <div class="diagnostic-panel <c:if test="${loop.index != 0}">d-none</c:if>">
                         <div class="mb-3">
@@ -23,7 +30,9 @@
                 </c:forEach>
             </div>
             <input type="hidden" name="answers" id="answers" />
-            <button id="submit-btn" class="btn btn-primary">next</button>
+            <div class="d-flex justify-content-end w-100 p-3">
+                <button id="submit-btn" class="btn btn-primary">Next</button>
+            </div>
         </form>
     </c:if>
     <c:if test="${not empty diagnosticBean}">
@@ -38,8 +47,8 @@
                 <p>Answer : ${item[1][diagnosticBean.getAnswers().get(loop.index)]}</p>
             </div>
         </c:forEach>
-        <a class="mb-3" href="home">
-            <button class="btn btn-primary">Go Back Home</button>
+        <a class="mb-3" href="profile">
+            <button class="btn btn-primary">Go Back Dashboard</button>
         </a>
     </c:if>
 </div>
@@ -88,4 +97,4 @@
     }
 </script>
 
-<%@include file="/WEB-INF/comps/footer.jsp" %>
+<%@include file="/WEB-INF/comps/dashboard/footer.jsp" %>

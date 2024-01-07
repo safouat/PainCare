@@ -11,16 +11,16 @@
             <div class="side-bar-content flex-grow-1 d-flex justify-content-center mt-3 pt-3">
                 <ul class="list-unstyled text-center side-bar-links">
                     <li class="m-3">
-                        <a class="active" href="#">Dashboard</a>
+                        <a href="profile" <c:if test="${activePage eq 'dashboard'}">class="active"</c:if> >Dashboard</a>
                     </li>
                     <li class="m-3">
-                        <a href="#">Diagnostic Test</a>
+                        <a href="diagnostic" <c:if test="${activePage eq 'diagnostic'}">class="active"</c:if> href="#">Diagnostic Test</a>
                     </li>
                     <li class="m-3">
-                        <a href="#">Pain Track</a>
+                        <a href="track_pain" <c:if test="${activePage eq 'pain_track'}">class="active"</c:if> href="#">Pain Track</a>
                     </li>
                     <li class="m-3">
-                        <a href="#">Manage Blogs</a>
+                        <a href="manage_blogs" <c:if test="${activePage eq 'blogs'}">class="active"</c:if> href="#">Manage Blogs</a>
                     </li>
                 </ul>
             </div>
@@ -31,3 +31,4 @@
     </side>
     <main class="dashboard-content flex-grow-1">
 
+        
