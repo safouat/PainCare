@@ -22,7 +22,8 @@ import User.UserDaoImpl;
 @WebServlet("/publish")
 @MultipartConfig
 public class Publish extends HttpServlet {
-	private static final String WEB_CONTENT_DIR   = "C:/Users/A_El_Kaimouni/eclipse-workspace/PainCareWorkShop/webcontent/";
+	private static final String WEB_CONTENT_DIR   = "/home/safouat/Desktop/Projects/paincare/PainCare/webcontent/";
+
 	private static final String BLOGS_IMAGES_DIR = "assets/blogs-images/";
 	private static final long serialVersionUID = 1L;
 	private UserDaoImpl userDAO;

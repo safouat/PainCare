@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import Blog.BlogBean;
 import Blog.BlogDaoImpl;
 import Database.DAOFactory;
+import User.UserBean;
 import User.UserDaoImpl;
 
 /**
@@ -42,13 +43,14 @@ public class UserBlog extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		   try {
+			    UserBean userBean = userDAO.auth(request);
 	            // Get the current page from the request parameter, default to 1 if not provided
 			    int id= Integer.parseInt(request.getParameter("id"));
 	            int currentPage = Integer.parseInt(request.getParameter("page") != null ?
 	                    request.getParameter("page") : "1");
 
 	            // Set the desired page size
-	            int pageSize = 6;
+	            int pageSize = 4;
 
 	            // Retrieve total records from the DAO or other source
 	            int totalRecords =20; // Get the total number of records from your DAO or other source
@@ -60,6 +62,8 @@ public class UserBlog extends HttpServlet {
 	            request.setAttribute("blogs", blogDAO.getBlogUser(currentPage, pageSize, id));
 	            request.setAttribute("totalPages", totalPages);
 	            request.setAttribute("currentPage", currentPage);
+	            request.setAttribute("userBean", userBean);
+		         
 	         
 	            // Forward the request to your JSP page
 	            getServletContext().getRequestDispatcher("/WEB-INF/views/users/userBlog.jsp").forward(request, response);
