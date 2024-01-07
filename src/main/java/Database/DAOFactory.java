@@ -1,6 +1,7 @@
 package Database;
 
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +14,7 @@ import Health.DiagnosticDaoImpl;
 import Health.PainTrackDaoImpl;
 import Health.PainTrackParamDaoImpl;
 import User.UserDaoImpl;
+
 
 public class DAOFactory {
 	private static final String CONFIG_LOCATION   = "/Database/dao.properties";

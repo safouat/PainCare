@@ -1,6 +1,7 @@
 package Blog.servlets;
 
 import jakarta.servlet.ServletException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,20 +32,35 @@ public class BrowseBlogs extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			ArrayList<BlogBean> blogs = blogDAO.all();
-			
-			request.setAttribute("blogs", blogs);
-			
-			getServletContext().getRequestDispatcher("/WEB-INF/views/comunity/blogs.jsp").forward(request, response);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-			response.setStatus(500);
-			response.getWriter().write(e.getMessage());
-		}
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            // Get the current page from the request parameter, default to 1 if not provided
+            int currentPage = Integer.parseInt(request.getParameter("page") != null ?
+                    request.getParameter("page") : "1");
+
+            // Set the desired page size
+            int pageSize = 6;
+
+            // Retrieve total records from the DAO or other source
+            int totalRecords =20; // Get the total number of records from your DAO or other source
+
+            // Calculate total pages
+            int totalPages = (int) Math.ceil((double) totalRecords / pageSize);
+
+            // Set attributes for JSP
+            request.setAttribute("blogs", blogDAO.getAllWithPagination(currentPage, pageSize));
+            request.setAttribute("totalPages", totalPages);
+            request.setAttribute("currentPage", currentPage);
+
+            // Forward the request to your JSP page
+            getServletContext().getRequestDispatcher("/WEB-INF/views/comunity/blogs.jsp").forward(request, response);
+        } catch (SQLException | NumberFormatException e) {
+            e.printStackTrace();
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write(e.getMessage());
+        }
+    }
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

@@ -11,6 +11,8 @@ public class BlogBean {
 	private String image;
 	private Date date;
 	private String user_name;
+	private String user_image;
+	
 	
 	public int getID() {
 		return this.id;
@@ -30,6 +32,9 @@ public class BlogBean {
 	
 	public String getImage() {
 		return this.image;
+	}
+	public String getUserImage() {
+		return this.user_image;
 	}
 	
 	public Date getDate() {
@@ -59,6 +64,10 @@ public class BlogBean {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	public String setUserImage(String user_image) {
+		return this.user_image=user_image;
+	}
+	
 
 	public void setDate(Date date) {
 		this.date = date;
