@@ -36,7 +36,9 @@ public class Blog extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			
 			String id = request.getParameter("id");
+			 request.setAttribute("blogs", blogDAO.three());
 			BlogBean blog = blogDAO.one(Integer.parseInt(id));
 			
 			if(blog == null) {

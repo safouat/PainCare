@@ -26,6 +26,7 @@ public class BlogDaoImpl implements BlogDAO {
     	bean.setImage(res.getString("image"));
     	bean.setDate(res.getDate("date"));
     	bean.setUserName(res.getString("user_name"));
+    	bean.setUserImage(res.getString("user_avatar"));
     	
     	return bean;
     }
@@ -80,30 +81,41 @@ public class BlogDaoImpl implements BlogDAO {
     }
     
     @Override
-    public ArrayList<BlogBean> all() throws SQLException {
-    	Connection conn = daoFactory.getConnection();
-    	String SQL = "SELECT blogs.*, users.name AS user_name "
-    			+ "FROM blogs "
-    			+ "JOIN users ON blogs.user_id = users.id "
-    			+ "ORDER BY id DESC;";
-    	PreparedStatement statement = conn.prepareStatement(SQL);
-    	
-    	ResultSet res = statement.executeQuery();
-    	ArrayList<BlogBean> list = new ArrayList<BlogBean>();
-    	
-    	while(res.next()) list.add(getBean(res));
-    	
-    	res.close();
-    	statement.close();
-    	conn.close();
-    	
-    	return list;
+    public ArrayList<BlogBean> getAllWithPagination(int page, int pageSize) throws SQLException {
+        Connection conn = daoFactory.getConnection();
+
+        // Calculate the offset based on the page number and page size
+        int offset = (page - 1) * pageSize;
+
+        String SQL = "SELECT blogs.*, users.name AS user_name, users.avatar AS user_avatar "
+                + "FROM blogs "
+                + "JOIN users ON blogs.user_id = users.id "
+                + "ORDER BY id DESC "
+                + "LIMIT ? OFFSET ?";
+        
+        PreparedStatement statement = conn.prepareStatement(SQL);
+        statement.setInt(1, pageSize);  // Set the limit
+        statement.setInt(2, offset);    // Set the offset
+
+        ResultSet res = statement.executeQuery();
+        ArrayList<BlogBean> list = new ArrayList<>();
+
+        while (res.next()) {
+            list.add(getBean(res));
+        }
+
+        res.close();
+        statement.close();
+        conn.close();
+
+        return list;
     }
+
     
     @Override
     public BlogBean one(int blog_id) throws SQLException {
     	Connection conn = daoFactory.getConnection();
-    	String SQL = "SELECT blogs.*, users.name AS user_name "
+    	String SQL = "SELECT blogs.*, users.name AS user_name ,users.avatar AS user_avatar "
     			+ "FROM blogs "
     			+ "JOIN users ON blogs.user_id = users.id "
     			+ "WHERE blogs.id = ?;";
@@ -120,4 +132,27 @@ public class BlogDaoImpl implements BlogDAO {
     	
     	return bean;
     }
+    @Override
+    public ArrayList<BlogBean> three() throws SQLException {
+        Connection conn = daoFactory.getConnection();
+        String SQL = "SELECT blogs.*, users.name AS user_name, users.avatar AS user_avatar " +
+                     "FROM blogs " +
+                     "JOIN users ON blogs.user_id = users.id " +
+                     "ORDER BY id DESC LIMIT 3";
+        
+        PreparedStatement statement = conn.prepareStatement(SQL);
+        ResultSet res = statement.executeQuery();
+        ArrayList<BlogBean> list = new ArrayList<BlogBean>();
+        
+        while (res.next()) {
+            list.add(getBean(res));
+        }
+        
+        res.close();
+        statement.close();
+        conn.close();
+        
+        return list;
+    }
+
 }

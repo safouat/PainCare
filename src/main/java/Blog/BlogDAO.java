@@ -7,6 +7,7 @@ public interface BlogDAO {
 	public void create(int user_id, String title, String description, String image) throws SQLException;
 	public void update(BlogBean blog) throws SQLException;
 	public void delete(int blog_id) throws SQLException;
-	public ArrayList<BlogBean> all() throws SQLException;
 	public BlogBean one(int blog_id) throws SQLException;
+	public ArrayList<BlogBean> getAllWithPagination(int page, int pageSize) throws SQLException ;
+	public ArrayList<BlogBean> three() throws SQLException;
 }
