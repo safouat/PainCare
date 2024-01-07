@@ -23,80 +23,8 @@
               width: 411px;
         margin-left: 12px;
         }
-        /* Style for the file input */
-.input-file-container {
-  position: relative;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.input-file {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.input-file-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  padding: 10px;
-  background-color: #3498db;
-  color: #fff;
-  border-radius: 5px;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.input-file-label:hover {
-  background-color: #2980b9;
-}
-
-.input-file-label:active {
-  background-color: #1f679b;
-}
-
-/* Style for the file name display */
-.file-name {
-  margin-left: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  flex-grow: 1;
-}
-
-/* Style for the upload button */
-.upload-button {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.upload-button:hover {
-  background-color: #27ae60;
-}
-
-.upload-button:active {
-  background-color: #1f8c4b;
-}
-        
-         
+     
+ }
 </style>
  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
@@ -124,8 +52,7 @@
         });
     });
 </script>
-
-       
+ 
 <%@include file="/WEB-INF/comps/header.jsp" %>
 
 <div class="app-form-cnt container">
@@ -149,12 +76,9 @@
 
 	<form action="" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-				<div class="container">
-						<input  name="image" type="file" class="form-control" id="image" placeholder="Image" accept="image/*">
-				
-			
-			
-	
+			<div class="container">
+			<input  name="image" type="file" class="form-control" id="image" placeholder="Image" accept="image/*">
+		
 </div>
 			
 		</div>
@@ -173,7 +97,7 @@
 	
 		<div class="d-flex justify-content-center"> <!-- Center the button -->
             <button class="btn-box theme-btn" data-bs-toggle="modal" data-bs-target="#partInfoModal1" type="submit">
-                Publish
+               Update Blog
             </button>
         </div>
 	</form>

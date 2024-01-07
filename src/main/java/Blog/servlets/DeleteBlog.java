@@ -35,39 +35,39 @@ public class DeleteBlog extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserBean userBean = userDAO.auth(request);
-		
-		if(userBean == null) {
-			response.sendRedirect("login");
-			return;
-		}
-		
-		String blog_id = request.getParameter("blog_id");
-		
-		try {
-			BlogBean blog = blogDAO.one(Integer.parseInt(blog_id));
-			
-			if(blog == null) {
-				response.sendRedirect("blogs");
-				return;
-			}
-			
-			if(blog.getUserID() != userBean.getID()) {
-				response.sendError(403);
-				return;
-			}
-			
-			blogDAO.delete(Integer.parseInt(blog_id));
-			
-			response.sendRedirect("blogs");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-			response.setStatus(500);
-			response.getWriter().write(e.getMessage());
-		} catch (NumberFormatException e) {
-			response.sendError(400);
-		}
+	    UserBean userBean = userDAO.auth(request);
+	    
+	    if(userBean == null) {
+	        response.sendRedirect("login");
+	        return;
+	    }
+	    
+	    String blog_id = request.getParameter("blog_id");
+	    
+	    try {
+	        BlogBean blog = blogDAO.one(Integer.parseInt(blog_id));
+	        
+	        if(blog == null) {
+	            response.sendRedirect("UserBlog?id=" + blog.getUserID());
+	            return;
+	        }
+	        
+	        if(blog.getUserID() != userBean.getID()) {
+	            response.sendError(403);
+	            return;
+	        }
+	        
+	        blogDAO.delete(Integer.parseInt(blog_id));
+	        
+	        response.sendRedirect("UserBlog?id=" + blog.getUserID());
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        
+	        response.setStatus(500);
+	        response.getWriter().write(e.getMessage());
+	    } catch (NumberFormatException e) {
+	        response.sendError(400);
+	    }
 	}
 
 }

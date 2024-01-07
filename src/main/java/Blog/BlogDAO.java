@@ -10,4 +10,6 @@ public interface BlogDAO {
 	public BlogBean one(int blog_id) throws SQLException;
 	public ArrayList<BlogBean> getAllWithPagination(int page, int pageSize) throws SQLException ;
 	public ArrayList<BlogBean> three() throws SQLException;
+	  public ArrayList<BlogBean> getBlogUser(int page, int pageSize,int id) throws SQLException ;
 }
+

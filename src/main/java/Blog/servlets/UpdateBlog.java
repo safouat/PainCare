@@ -89,7 +89,7 @@ public class UpdateBlog extends HttpServlet {
 			
 			request.setAttribute("blog", blog);
 			
-			renderForm(request, response);
+			 getServletContext().getRequestDispatcher("/WEB-INF/views/comunity/updateBlog.jsp").forward(request, response);
 		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
 			

@@ -154,5 +154,40 @@ public class BlogDaoImpl implements BlogDAO {
         
         return list;
     }
+    @Override
+    public ArrayList<BlogBean> getBlogUser(int page, int pageSize,int id) throws SQLException {
+        Connection conn = daoFactory.getConnection();
+
+        // Calculate the offset based on the page number and page size
+        int offset = (page - 1) * pageSize;
+
+        String SQL = "SELECT blogs.*, users.name AS user_name, users.avatar AS user_avatar "
+                + "FROM blogs "
+                + "JOIN users ON blogs.user_id = users.id where blogs.user_id = ? "
+                + "ORDER BY blogs.id DESC "
+                + "LIMIT ? OFFSET ? ";
+
+
+        
+        PreparedStatement statement = conn.prepareStatement(SQL);
+        statement.setInt(1, id);
+        statement.setInt(2, pageSize);  // Set the limit
+        statement.setInt(3, offset);
+      // Set the offset
+
+        ResultSet res = statement.executeQuery();
+        ArrayList<BlogBean> list = new ArrayList<>();
+
+        while (res.next()) {
+            list.add(getBean(res));
+        }
+
+        res.close();
+        statement.close();
+        conn.close();
+
+        return list;
+    }
+
 
 }
