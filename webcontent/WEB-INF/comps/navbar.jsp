@@ -28,8 +28,8 @@
                         </li>
                         <li>
                             <c:if test="${not empty userBean}">
-                                <div class="dropdown">
-                                    <button class=" btn dropdown-toggle p-0" style="  outline: none !important;box-shadow: none !important;"
+                                <div>
+                                    <button class=" btn dropdown-toggle p-0" data-toggle="dropdown" style="outline: none !important;box-shadow: none !important;"
                                         type="button" id="dropdownMenu2" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar" style="display: inline-block; padding-top: 20px;">
@@ -41,11 +41,11 @@
                                                 <img class="p-0" width="50" height="50" src="assets/images/logo-full.png"
                                                     class="logo  rounded-circle " alt="Logo">
                                             </c:if>
-                                            ${userBean.getName()}
+                                           
                                     </button>
                                                                         
                                     
-                                    <div style="min-width: 15vw;" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <div style="min-width: 15vw;" class="dropdown-menu dropdown-menu-right">
                                         <a href="profile" class="dropdown-item" type="button">Dashboard</a>
                                         <a href="" class="dropdown-item" type="button">Another Action</a>
                                         <div class="dropdown-divider"></div>
