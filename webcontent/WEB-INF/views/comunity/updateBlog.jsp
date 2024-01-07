@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-    <c:set var="css_links" value="${['assets/css/form-page.css']}" />
+ <c:set var="css_links" value="${['assets/css/form-page.css']}" />
     <style>
         .custum-file-upload {
             height: 153px;
@@ -146,7 +146,7 @@
 
                 <div class="mb-3">
                     <div class="container">
-                        <label class="custum-file-upload" for="file">
+                        <label class="custum-file-upload" for="image">
                             <div class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
                                     <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -182,4 +182,4 @@
 
         </div>
 
-        <%@include file="/WEB-INF/comps/footer.jsp" %>
+ <%@include file="/WEB-INF/comps/footer.jsp" %>

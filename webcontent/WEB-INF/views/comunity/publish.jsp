@@ -218,7 +218,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="container">
-                        <label class="custum-file-upload" for="file">
+                        <label class="custum-file-upload" for="image">
                             <div class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
                                     <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
