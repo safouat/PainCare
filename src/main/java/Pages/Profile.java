@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -70,6 +71,23 @@ public class Profile extends HttpServlet {
         sb.append("]");
         return sb.toString();
     }
+	
+	private String arrayListOfDatesToJsonArray(ArrayList<Date> arrayList) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+
+        boolean first = true;
+        for (Date value : arrayList) {
+            if (!first) {
+                sb.append(", ");
+            }
+            sb.append("\"" + value.toString() + "\"");
+            first = false;
+        }
+
+        sb.append("]");
+        return sb.toString();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean userBean = userDAO.auth(request);
@@ -81,6 +99,7 @@ public class Profile extends HttpServlet {
 		
 		try {
 			ArrayList<Integer> painStats = painTrackDAO.painLevelStats(userBean.getID());
+			ArrayList<Date> painDates = painTrackDAO.painLevelDates(userBean.getID());
 			
 			Map<String, Integer> locationsMap = painTrackParamDAO.paramStats("locations", userBean.getID());
 			Map<String, Integer> symptomsMap = painTrackParamDAO.paramStats("symptoms", userBean.getID());
@@ -88,6 +107,7 @@ public class Profile extends HttpServlet {
 			Map<String, Integer> feelingsMap = painTrackParamDAO.paramStats("feelings", userBean.getID());
 			
 			request.setAttribute("painArray", arrayListToJsonArray(painStats));
+			request.setAttribute("painDatesArray", arrayListOfDatesToJsonArray(painDates));
 			
 			request.setAttribute("locationsObject", mapToJsonString(locationsMap));
 			request.setAttribute("symptomsObject", mapToJsonString(symptomsMap));

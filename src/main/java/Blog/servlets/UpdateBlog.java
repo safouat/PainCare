@@ -115,7 +115,7 @@ public class UpdateBlog extends HttpServlet {
 		try {
 			BlogBean blogBean = blogDAO.one(Integer.parseInt(id));
 			
-			if(image == null ||  image.getSize() == 0 || title.equals("") || description.equals("")) {
+			if(image == null || image.getSize() == 0 || title.equals("") || description.equals("")) {
 				request.setAttribute("form_error", "Please fill all fields");
 				request.setAttribute("blog", blogBean);
 				renderForm(request, response);

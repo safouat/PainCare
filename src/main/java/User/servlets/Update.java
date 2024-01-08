@@ -104,15 +104,18 @@ public class Update extends HttpServlet {
 			return;
 		}
 		
-		// save avatar in our avatars folder
-		String avatar = savePart(image);
+		if(image.getSize() > 0) {
+			// save avatar in our avatars folder
+			String avatar = savePart(image);
+			
+			// setup our user bean
+			bean.setAvatar(avatar);
+		}
 		
 		// convert birthday date to sql date
 		LocalDate localDate = LocalDate.parse(birthDay);
         Date sqlDate = java.sql.Date.valueOf(localDate);
 		
-        // setup our user bean
-		bean.setAvatar(avatar);
 		bean.setName(name);
 		bean.setBirthDay(sqlDate);
 		

@@ -4,7 +4,7 @@
     <side class="dashboard-side-bar p-3 bg-white">
         <div class="user-info d-flex flex-column h-100">
             <div class="user-avatar text-center">
-                <img width="100" height="100" src="${userBean.getAvatar()}" class="logo" alt="Logo">
+                <img style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="${userBean.getAvatar()}" class="logo" alt="Logo">
                 <p>${userBean.getName()}</p>
                 <a href="update_profile">Update Profile</a>
             </div>
@@ -24,8 +24,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="side-bar-footer text-center">
-                <a href="home" class="theme-btn"><i class="fas fa-sign-out-alt"></i>Exit</a>
+            <div class="side-bar-footer text-center d-flex flex-column align-items-center">
+                <img width="100" height="100" src="assets/images/logo-full.png" class="logo m-3" alt="Logo">
+                <a href="home" class="theme-btn m-3"><i class="fas fa-sign-out-alt"></i>Exit</a>
             </div>
         </div>
     </side>

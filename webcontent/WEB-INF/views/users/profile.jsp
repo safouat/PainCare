@@ -16,9 +16,9 @@
             <h6>Track pain</h6>
             <p>Explore your pain journey</p>
         </a>
-        <a href="UserBlog?id=${userBean.getID()}" class="dashboard-action col p-3 m-3 text-success border border-success rounded cursor-pointer shadow-sm">
+        <a href="manage_blog" class="dashboard-action col p-3 m-3 text-success border border-success rounded cursor-pointer shadow-sm">
             <i class="far fa-newspaper fa-3x mb-3"></i>
-            <h6>Browse blogs</h6>
+            <h6>Manage blogs</h6>
             <p>Expand your knowlege by browsing some health blogs</p>
         </a>
     </div>
@@ -105,8 +105,9 @@
     
     // pain evolution
     const datapoints = JSON.parse(`${painArray}`).reverse();
+    const dates = JSON.parse(`${painDatesArray}`).reverse();
     const data = {
-        labels: new Array(datapoints.length).fill(""),
+        labels: dates.map(d => new Date(d).toLocaleDateString()),
         datasets: [
             {
                 label: 'Pain Evolustion',

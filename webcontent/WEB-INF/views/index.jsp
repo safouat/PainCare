@@ -427,32 +427,29 @@
 		<div class="row clearfix">
 		
 			<c:forEach var="blog" items="${listOfBlogs}">
-				<div class="col-lg-4 col-md-6 col-sm-12 news-block">
-					<div class="news-block-one wow fadeInUp animated animated"
-						data-wow-delay="600ms" data-wow-duration="1500ms">
-						<div class="inner-box">
-							<figure class="image-box">
-								<a href="blog-details.html"><img
-									src="assets/images/${blog.getImage()}" alt=""></a>
-							</figure>
-							<div class="lower-content">
-								<span class="feature">Featured</span>
-								<h3>
-									<a href="blog-details.html">${blog.getTitle()}</a>
-								</h3>
-								<ul class="post-info clearfix">
-									<li><img src="assets/images/news/author-3.png" alt="">${blog.getUserName()}</li>
-									<li>${blog.getDate()}</li>
-								</ul>
-								<p
-									style="height: 75px;  overflow: hidden;white-space: pre-wrap; text-overflow: ellipsis;">${blog.getDescription()}</p>
-								<div class="btn-box">
-									<a href="blog-details.html">See Details</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 news-block  container">
+                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
+                        data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box blog-image">
+                                <a href="blog?id=${blog.getID()}">
+                                    <img src="${blog.getImage()}" />
+                                </a>
+                            </figure>
+                            <div class="lower-content">
+
+                                <h3><a href="blog-details.html">${blog.getTitle()}</a></h3>
+                                <ul class="post-info clearfix">
+                                    <li><img src="${blog.getUserImage()}" />${blog.getUserName()} </li>
+                                    <li>${blog.getDate().toString()}</li>
+
+                                </ul>
+                                <p>${blog.getDescription()}</p>
+                                <div class="btn-box"><a href="Blog?id=${blog.getID()}">See Details</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</c:forEach>
 
 		</div>

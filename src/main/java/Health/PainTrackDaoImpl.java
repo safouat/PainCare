@@ -1,6 +1,7 @@
 package Health;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -54,7 +55,7 @@ public class PainTrackDaoImpl implements PainTrackDAO {
     @Override
     public ArrayList<Integer> painLevelStats(int user_id) throws SQLException {
     	Connection conn = daoFactory.getConnection();
-    	String SQL = "SELECT level FROM paintracks WHERE user_id = ? ORDER BY id DESC LIMIT 14;";
+    	String SQL = "SELECT level FROM paintracks WHERE user_id = ? ORDER BY date DESC LIMIT 14;";
     	PreparedStatement statement = conn.prepareStatement(SQL);
     	
     	statement.setInt(1, user_id);
@@ -63,6 +64,25 @@ public class PainTrackDaoImpl implements PainTrackDAO {
     	ArrayList<Integer> list = new ArrayList<Integer>();
     	
     	while(res.next()) list.add(res.getInt("level"));
+    	
+    	res.close();
+    	statement.close();
+    	conn.close();
+    	
+    	return list;
+    }
+    
+    public ArrayList<Date> painLevelDates(int user_id) throws SQLException {
+    	Connection conn = daoFactory.getConnection();
+    	String SQL = "SELECT date FROM paintracks WHERE user_id = ? ORDER BY date DESC LIMIT 14;";
+    	PreparedStatement statement = conn.prepareStatement(SQL);
+    	
+    	statement.setInt(1, user_id);
+    	
+    	ResultSet res = statement.executeQuery();
+    	ArrayList<Date> list = new ArrayList<Date>();
+    	
+    	while(res.next()) list.add(res.getDate("date"));
     	
     	res.close();
     	statement.close();
