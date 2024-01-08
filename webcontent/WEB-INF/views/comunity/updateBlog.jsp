@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="activePage" value="blogs" />
-<c:set var="css_links" value="${['https://cdn.quilljs.com/1.3.6/quill.snow.css', 'assets/css/blog-form.css']}" />
+<c:set var="css_links" value="${['assets/css/quill.snow.css', 'assets/css/blog-form.css']}" />
 
 <%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
 
@@ -75,52 +75,8 @@
 
 </div>
 
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="assets/js/quill.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var quill = new Quill('#description', {
-            modules: {
-                toolbar: [
-                    ['bold', 'italic'],
-                    ['link', 'blockquote', 'code-block'],
-                    [{ list: 'ordered' }, { list: 'bullet' }]
-                ]
-            },
-            placeholder: 'Type your Content',
-            theme: 'snow'
-        });
-
-        // Use the 'text-change' event to update the hidden input when the content changes
-        quill.on('text-change', function () {
-            document.getElementById('descriptioninput').value = quill.root.innerHTML;
-        });
-    });
-    function previewImage(input) {
-        var preview = document.getElementById('imagePreview');
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onloadend = function () {
-            // Create an image element
-            var img = document.createElement('img');
-            img.src = reader.result;
-            img.alt = 'Image Preview';
-            img.style.maxWidth = '100%';
-            img.style.height = '100px';
-
-            // Clear previous content and append the new image
-            preview.innerHTML = '';
-            preview.appendChild(img);
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            // If no file is selected, clear the preview
-            preview.innerHTML = '';
-        }
-    }
-</script>
+<script src="assets/js/blogs-form.js"></script>
 
 <%@include file="/WEB-INF/comps/dashboard/footer.jsp" %>

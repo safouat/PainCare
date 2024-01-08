@@ -6,26 +6,27 @@
 
 <div class="container mt-3">
     <div class="row">
-        <a href="diagnostic" class="dashboard-action col p-3 m-3 text-primary border border-primary rounded cursor-pointer shadow-sm">
+        <a href="diagnostic" class="dashboard-action card col p-3 m-3 border rounded cursor-pointer shadow-sm">
             <i class="fas fa-stethoscope fa-3x mb-3"></i>
             <h6>Diagnostic test</h6>
             <p>Discover your potential endometriosis diagnostic</p>
         </a>
-        <a href="track_pain" class="dashboard-action col p-3 m-3 text-danger border border-danger rounded cursor-pointer shadow-sm">
+        <a href="track_pain" class="dashboard-action card col p-3 m-3 border rounded cursor-pointer shadow-sm">
             <i class="fas fa-chart-line fa-3x mb-3"></i>
             <h6>Track pain</h6>
             <p>Explore your pain journey</p>
         </a>
-        <a href="manage_blog" class="dashboard-action col p-3 m-3 text-success border border-success rounded cursor-pointer shadow-sm">
+        <a href="manage_blog" class="dashboard-action card col p-3 m-3 border rounded cursor-pointer shadow-sm">
             <i class="far fa-newspaper fa-3x mb-3"></i>
             <h6>Manage blogs</h6>
             <p>Expand your knowlege by browsing some health blogs</p>
         </a>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <div class="col">
             <c:if test="${not empty diagnosticBean}">
-                <div class="d-flex align-items-center rounded border border-danger p-3 bg-white shadow-sm">
+                <div class="profile-latest-score d-flex align-items-center rounded border p-3 bg-white shadow-sm">
+                    <i class="fas fa-exclamation-triangle fa-2x mr-3"></i>
                     <div class="flex-grow-1">
                         <h6>Last score</h6>
                         <p>Update your score regulary</p>
@@ -33,118 +34,63 @@
                     <bold class="mx-3">${diagnosticBean.calcResult()}</bold>
                 </div>
             </c:if>
-            <canvas height="220" class="mt-3" id="pain-level-chart"></canvas>
+            <div class="card shadow-sm mt-3">
+                <canvas height="460" class="mt-3" id="pain-level-chart"></canvas>
+            </div>
         </div>
         <div class="col">
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-6">
-                    <canvas id="locations-chart"></canvas>
+                    <div class="card shadow-sm p-3">
+                        <h6 class="text-center">Pain Locations</h6>
+                        <canvas id="locations-chart"></canvas>
+                    </div>
                 </div>
                 <div class="col-6">
-                    <canvas id="symptoms-chart"></canvas>
+                    <div class="card shadow-sm p-3">
+                        <h6 class="text-center">Symptoms</h6>
+                        <canvas id="symptoms-chart"></canvas>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col-6">
-                    <canvas id="worse-pain-chart"></canvas>
+                    <div class="card shadow-sm p-3">
+                        <h6 class="text-center">What Makes Pain Worse</h6>
+                        <canvas id="worse-pain-chart"></canvas>
+                    </div>
                 </div>
                 <div class="col-6">
-                    <canvas id="feelings-chart"></canvas>
+                    <div class="card shadow-sm p-3">
+                        <h6 class="text-center">Feelings</h6>
+                        <canvas id="feelings-chart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="assets/js/chart.umd.min.js"></script>
+
 <script>
-    const doughnutChartConfig = (dataObject, title = "") => ({
-        type: 'doughnut',
-        data: {
-            labels: Object.keys(dataObject),
-            datasets: [
-                {
-                    label: '  ',
-                    data: Object.values(dataObject)
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'left',
-                },
-                title: {
-                    display: true,
-                    text: title
-                }
-            }
-        },
-    });
+    // pain evolution
+    const datapoints = JSON.parse(`${painArray}`).reverse();
+    const dates = JSON.parse(`${painDatesArray}`).reverse();
 
     // locations
     const locationsObject = JSON.parse(`${locationsObject}`);
 
-    new Chart(document.getElementById("locations-chart"), doughnutChartConfig(locationsObject, "Pain Locations"));
-
     // symptoms
     const symptomsObject = JSON.parse(`${symptomsObject}`);
-
-    new Chart(document.getElementById("symptoms-chart"), doughnutChartConfig(symptomsObject, "Symptoms"));
 
     // pain worse
     const worsePainObject = JSON.parse(`${worsePainObject}`);
 
-    new Chart(document.getElementById("worse-pain-chart"), doughnutChartConfig(worsePainObject, "What Makes Pain Worse"));
-
     // symptoms
     const feelingsObject = JSON.parse(`${feelingsObject}`);
-
-    new Chart(document.getElementById("feelings-chart"), doughnutChartConfig(feelingsObject, "Feelings"));
-    
-    // pain evolution
-    const datapoints = JSON.parse(`${painArray}`).reverse();
-    const dates = JSON.parse(`${painDatesArray}`).reverse();
-    const data = {
-        labels: dates.map(d => new Date(d).toLocaleDateString()),
-        datasets: [
-            {
-                label: 'Pain Evolustion',
-                data: datapoints,
-                fill: false,
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4
-            }
-        ]
-    };
-    new Chart(document.getElementById('pain-level-chart'), {
-        type: 'line',
-        data: data,
-        options: {
-            responsive: true,
-            interaction: {
-                intersect: false,
-            },
-            scales: {
-                x: {
-                    display: true,
-                    title: {
-                        display: true
-                    }
-                },
-                y: {
-                    display: true,
-                    title: {
-                        display: true,
-                        text: 'Pain'
-                    },
-                    suggestedMin: 0,
-                    suggestedMax: 10
-                }
-            }
-        },
-    })
 </script>
+
+<script src="assets/js/profile.js"></script>
 
 <%@include file="/WEB-INF/comps/dashboard/footer.jsp" %>

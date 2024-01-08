@@ -2,7 +2,7 @@
 <header class="main-header">
     <div class="outer-box clearfix">
         <div class="logo-box pull-left">
-            <figure class="logo"><a href="index.html"><img style="height: 60px" src="assets/images/logo-full.png" alt=""></a></figure>
+            <figure class="logo"><a href="home"><img style="height: 60px" src="assets/images/logo-full.png" alt=""></a></figure>
         </div>
         <div class="menu-area pull-right">
             <!--Mobile Navigation Toggler-->
@@ -38,8 +38,8 @@
                                                                         
                                     
                                     <div style="min-width: 15vw;" class="dropdown-menu dropdown-menu-right">
-                                        <a href="profile" class="dropdown-item" type="button">Dashboard</a>
-                                        <a href="" class="dropdown-item" type="button">Another Action</a>
+                                        <a href="profile" class="dropdown-item" type="button">Profile</a>
+                                        <a href="manage_blog" class="dropdown-item" type="button">Manage Blogs</a>
                                         <div class="dropdown-divider"></div>
                                         <a href="logout" class="dropdown-item" type="button">Logout</a>
                                     </div>

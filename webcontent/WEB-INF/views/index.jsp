@@ -3,12 +3,6 @@
 <%@include file="/WEB-INF/comps/header.jsp"%>
 
 <%@include file="/WEB-INF/comps/navbar.jsp"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="Blog.BlogDaoImpl"%>
-<%@ page import="Blog.BlogBean"%>
-<%@ page import="Database.DAOFactory"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style>
 .icn {
@@ -34,27 +28,6 @@
 				<div class="row align-items-center clearfix">
 					<div class="col-lg-6 col-md-6 col-sm-12 content-column">
 						<div class="content-box">
-							<h6>Endometriosis</h6>
-							<h1>A silent battle, A relentless strength.</h1>
-							<p>Together, we raise our voices and heal with hope.</p>
-							<div class="btn-box">
-								<a href="diagnostic">Perform a diagnosys</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 image-column">
-						<figure class="image-box">
-							<img src="assets/images/endromesis1.jpg" alt="">
-						</figure>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="slide-item">
-			<div class="auto-container">
-				<div class="row align-items-center clearfix">
-					<div class="col-lg-6 col-md-6 col-sm-12 content-column">
-						<div class="content-box">
 							<h6>Understanding Endometriosis</h6>
 
 							<h1>Track Your Journey, Seek Professional Guidance</h1>
@@ -71,6 +44,27 @@
 					<div class="col-lg-6 col-md-6 col-sm-12 image-column">
 						<figure class="image-box">
 							<img src="assets/images/endromesis2.jpg" alt="">
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slide-item">
+			<div class="auto-container">
+				<div class="row align-items-center clearfix">
+					<div class="col-lg-6 col-md-6 col-sm-12 content-column">
+						<div class="content-box">
+							<h6>Endometriosis</h6>
+							<h1>A silent battle, A relentless strength.</h1>
+							<p>Together, we raise our voices and heal with hope.</p>
+							<div class="btn-box">
+								<a href="diagnostic">Perform a diagnosys</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 image-column">
+						<figure class="image-box">
+							<img src="assets/images/endromesis1.jpg" alt="">
 						</figure>
 					</div>
 				</div>
@@ -168,8 +162,7 @@
 								<img class="icn" src="assets\images\icons\R.png" alt="">
 							</figure>
 							<div class="count-outer count-box">
-								<span class="count-text" data-speed="" data-stop="190">0</span>
-								milion
+								<span class="count-text" data-speed="1500" data-stop="924628">0</span>
 							</div>
 							<p>Number affected</p>
 						</div>
@@ -444,7 +437,7 @@
                                     <li>${blog.getDate().toString()}</li>
 
                                 </ul>
-                                <p>${blog.getDescription()}</p>
+                                <p></p>
                                 <div class="btn-box"><a href="Blog?id=${blog.getID()}">See Details</a></div>
                             </div>
                         </div>

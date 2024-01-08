@@ -1,6 +1,6 @@
 .custum-file-upload {
     height: 153px;
-    width: 412px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -48,16 +48,16 @@ button.browse.btn.px-4 {
 }
 
 input#title {
-    width: 411px;
+    width: 600px;
 }
 
 .ql-toolbar {
-    max-width: 411px;
+    max-width: 600px;
 }
 
 #description {
-    height: 130px;
-    width: 411px;
+    height: 220px;
+    width: 600px;
 }
 
 /* Style for the file input */

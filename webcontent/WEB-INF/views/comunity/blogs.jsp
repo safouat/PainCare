@@ -37,7 +37,7 @@
                                     <li>${blog.getDate().toString()}</li>
 
                                 </ul>
-                                <p>${blog.getDescription()}</p>
+                                <p></p>
                                 <div class="btn-box"><a href="Blog?id=${blog.getID()}">See Details</a></div>
                             </div>
                         </div>

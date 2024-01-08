@@ -115,19 +115,22 @@ public class UpdateBlog extends HttpServlet {
 		try {
 			BlogBean blogBean = blogDAO.one(Integer.parseInt(id));
 			
-			if(image == null || image.getSize() == 0 || title.equals("") || description.equals("")) {
+			if(image == null || title.equals("") || description.equals("")) {
 				request.setAttribute("form_error", "Please fill all fields");
 				request.setAttribute("blog", blogBean);
 				renderForm(request, response);
 				return;
 			}
 			
-			// save blog image in our blogs-images folder
-			String imageLink = savePart(image);
+			if(image.getSize() > 0) {
+				String imageLink = savePart(image);
+				
+				blogBean.setImage(imageLink);
+			}
+			
 			
 			blogBean.setTitle(title);
 			blogBean.setDescription(description);
-			blogBean.setImage(imageLink);
 			
 			blogDAO.update(blogBean);
 			

@@ -1,106 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:set var="activePage" value="blogs" />
+<c:set var="css_links" value="${['assets/css/blogs.css']}" />
+
 <%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
-<style>
-    .table td {
-        padding: 0.75rem;
-
-    }
-
-    .fa-trash:before {
-        content: "\f1f8";
-        color: black;
-    }
-
-    .fa-edit:before {
-        content: "\f044";
-        color: black;
-    }
-
-    i {
-        margin: 3px;
-    }
-
-    .rounded-circle {
-        border-radius: 50% !important;
-        width: 130px;
-        height: 115px;
-    }
-
-    .blogs-cnt {
-        max-width: 800px;
-        margin: auto;
-    }
-
-    .blog-page-image {
-        max-width: 100%;
-    }
-
-
-    .blog-page-image img {
-        max-width: 100%;
-    }
-
-    .blog-image {
-        width: 300px;
-        height: 200px;
-    }
-
-    .blog-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    .news-block-one .inner-box .image-box {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        background: #000;
-        /* max-height: 210px; */
-        max-height: 200px;
-    }
-
-    img.icons {
-        height: 90px;
-    }
-    #editor-container {
-        height: 130px;
-        color: black;
-    }
-
-    .fa-times:before {
-        content: "\f00d";
-        font-size: 28px;
-        background-color: white;
-    }
-
-    input:focus {
-        outline: none;
-    }
-
-    .title {
-        font-family: 'Poppins', sans-serif;
-
-    }
-
-    button.browse.btn.px-4 {
-        color: #fff;
-        background-color: var(--main-color);
-        border-color: var(--main-color);
-    }
-
-    .modal-footer {
-        border-top: none !important;
-    }
-
-    .sidebar-page-container .sidebar .sidebar-post .post-inner .post .post-thumb img {
-        width: 100%;
-        border-radius: 10px;
-        transition: all 500ms ease;
-        height: 81px;
-    }
-</style>
 
 <div class="containter" style="padding: 0 10em;">
     <section class="page-title centred p-0 m-3">
@@ -140,13 +43,12 @@
         </ul>
     </div>
 
-    <table class="table table-striped table-centered mb-3">
+    <table class="table table-striped table-centered mb-3 border shadow-sm">
         <thead>
             <tr>
                 <th>Picture</th>
                 <th>Title</th>
                 <th>Created Date</th>
-                <th>Blog Content</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -159,12 +61,13 @@
                     </td>
                     <td> ${blog.getTitle()}</td>
                     <td>${blog.getDate().toString()} </td>
-                    <td>${blog.getDescription()}</td>
                     <td class="table-action">
-                        <a href="remove_blog?blog_id=${blog.getID()}" class="action-icon"> <i
-                                class="mdi mdi-pencil"><i class="fas fa-trash"></i></a>
-                        <a href="update_blog?id=${blog.getID()}" class="action-icon"> <i
-                                class="fas fa-edit"></i></a>
+                        <a href="remove_blog?blog_id=${blog.getID()}" class="action-icon theme-btn-icon mr-3">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                        <a href="update_blog?id=${blog.getID()}" class="action-icon theme-btn-icon">
+                            <i class="fas fa-edit"></i>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
@@ -175,9 +78,4 @@
 </div>
 
         
-
-
-
-
-
 <%@include file="/WEB-INF/comps/dashboard/footer.jsp" %>
