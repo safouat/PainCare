@@ -55,7 +55,7 @@ public class PainTrackDaoImpl implements PainTrackDAO {
     @Override
     public ArrayList<Integer> painLevelStats(int user_id) throws SQLException {
     	Connection conn = daoFactory.getConnection();
-    	String SQL = "SELECT level FROM paintracks WHERE user_id = ? ORDER BY date DESC LIMIT 14;";
+    	String SQL = "SELECT level FROM paintracks WHERE user_id = ? ORDER BY date DESC LIMIT 7;";
     	PreparedStatement statement = conn.prepareStatement(SQL);
     	
     	statement.setInt(1, user_id);
@@ -74,7 +74,7 @@ public class PainTrackDaoImpl implements PainTrackDAO {
     
     public ArrayList<Date> painLevelDates(int user_id) throws SQLException {
     	Connection conn = daoFactory.getConnection();
-    	String SQL = "SELECT date FROM paintracks WHERE user_id = ? ORDER BY date DESC LIMIT 14;";
+    	String SQL = "SELECT date FROM paintracks WHERE user_id = ? ORDER BY date DESC LIMIT 7;";
     	PreparedStatement statement = conn.prepareStatement(SQL);
     	
     	statement.setInt(1, user_id);

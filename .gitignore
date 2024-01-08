@@ -2,9 +2,9 @@
 /bin
 /target
 
-
 src/main/java/Database/dao.properties
 webcontent/assets/avatars
+webcontent/assets/blogs-images
 
 .classpath
 .project
