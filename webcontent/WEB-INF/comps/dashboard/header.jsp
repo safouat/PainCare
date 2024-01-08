@@ -20,7 +20,7 @@
                         <a href="#">Pain Track</a>
                     </li>
                     <li class="m-3">
-                        <a href="UserBlog?id=${userBean.getID()}">Manage Blogs</a>
+                        <a href="manage_blog">Manage Blogs</a>
                     </li>
                 </ul>
             </div>

@@ -18,6 +18,7 @@ import User.UserDaoImpl;
 /**
  * Servlet implementation class UserBlog
  */
+@WebServlet("/manage_blog")
 public class UserBlog extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDaoImpl userDAO;
@@ -45,7 +46,7 @@ public class UserBlog extends HttpServlet {
 		   try {
 			    UserBean userBean = userDAO.auth(request);
 	            // Get the current page from the request parameter, default to 1 if not provided
-			    int id= Integer.parseInt(request.getParameter("id"));
+			 
 	            int currentPage = Integer.parseInt(request.getParameter("page") != null ?
 	                    request.getParameter("page") : "1");
 
@@ -53,13 +54,13 @@ public class UserBlog extends HttpServlet {
 	            int pageSize = 4;
 
 	            // Retrieve total records from the DAO or other source
-	            int totalRecords =20; // Get the total number of records from your DAO or other source
+	            int totalRecords =blogDAO.Count(userBean.getID()); // Get the total number of records from your DAO or other source
 
 	            // Calculate total pages
 	            int totalPages = (int) Math.ceil((double) totalRecords / pageSize);
               
 	            // Set attributes for JSP
-	            request.setAttribute("blogs", blogDAO.getBlogUser(currentPage, pageSize, id));
+	            request.setAttribute("blogs", blogDAO.getBlogUser(currentPage, pageSize, userBean.getID()));
 	            request.setAttribute("totalPages", totalPages);
 	            request.setAttribute("currentPage", currentPage);
 	            request.setAttribute("userBean", userBean);

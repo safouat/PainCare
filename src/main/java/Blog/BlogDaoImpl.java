@@ -52,6 +52,11 @@ public class BlogDaoImpl implements BlogDAO {
     @Override
     public void delete(int blog_id) throws SQLException {
     	Connection conn = daoFactory.getConnection();
+    	String deleteCommentsSQL = "DELETE FROM comments WHERE blog_id = ?";
+    	PreparedStatement  deleteCommentsStatement = conn.prepareStatement(deleteCommentsSQL);
+        deleteCommentsStatement.setInt(1, blog_id);
+        deleteCommentsStatement.execute();
+        
     	String SQL = "DELETE FROM blogs WHERE id = ?;";
     	PreparedStatement statement = conn.prepareStatement(SQL);
     	
@@ -78,6 +83,50 @@ public class BlogDaoImpl implements BlogDAO {
     	
     	statement.close();
     	conn.close();
+    }
+    public int Count(int id) throws SQLException{
+        Connection conn = daoFactory.getConnection();
+        String SQL = "select count(*) AS blogCount from blogs where user_id=?;\n"
+        		+ "";
+        PreparedStatement statement=conn.prepareStatement(SQL);
+        statement.setInt(1, id);
+        ResultSet res = statement.executeQuery();
+        
+     
+        if (res.next()) {
+            // Move the cursor to the first row and retrieve the count
+            int blogCount = res.getInt("blogCount");
+            res.close();
+            statement.close();
+            conn.close();
+            return blogCount;
+        } else {
+            // Handle the case where no result is found (optional)
+            return 0;
+        }
+    }
+        public int CountAll() throws SQLException{
+            Connection conn = daoFactory.getConnection();
+            String SQL = "select count(*) AS BlogCount from blogs";
+            PreparedStatement statement=conn.prepareStatement(SQL);
+          
+            ResultSet res = statement.executeQuery();
+            
+         
+            if (res.next()) {
+                // Move the cursor to the first row and retrieve the count
+                int blogCount = res.getInt("blogCount");
+                res.close();
+                statement.close();
+                conn.close();
+                return blogCount;
+            } else {
+                // Handle the case where no result is found (optional)
+                return 0;
+            }
+
+        
+    	
     }
     
     @Override
