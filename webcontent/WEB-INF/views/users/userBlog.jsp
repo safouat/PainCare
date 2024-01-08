@@ -174,21 +174,21 @@
             </tbody>
         </table>
 
-        <div class="pagination-wrapper centred">
-            <ul class="pagination clearfix">
-                <c:forEach begin="1" end="${totalPages}" var="page">
-                    <li>
-                        <c:if test="${page == currentPage}">
-                            <a href="/PainCare/UserBlog?id=${userBean.getID()}&page=${page}" class="active">${page}</a>
-                        </c:if>
-                        <c:if test="${page != currentPage}">
-                            <a href="/PainCare/UserBlog?id=${userBean.getID()}&page=${page}">${page}</a>
-                        </c:if>
-
-                    </li>
-                </c:forEach>
-            </ul>
-        </div>
+          <div class="pagination-wrapper centred">
+                        <ul class="pagination clearfix">
+                            <c:forEach begin="1" end="${totalPages}" var="page">
+                                <li>
+                                    <c:if test="${page == currentPage}">
+                                        <a href="manage_blog?page=${page}" class="active">${page}</a>
+                                    </c:if>
+                                    <c:if test="${page != currentPage}">
+                                        <a href="manage_blog?page=${page}">${page}</a>
+                                    </c:if>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+        
 
 
 

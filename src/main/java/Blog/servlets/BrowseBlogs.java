@@ -39,7 +39,7 @@ public class BrowseBlogs extends HttpServlet {
             int pageSize = 6;
 
             // Retrieve total records from the DAO or other source
-            int totalRecords =20; // Get the total number of records from your DAO or other source
+            int totalRecords =blogDAO.CountAll(); // Get the total number of records from your DAO or other source
 
             // Calculate total pages
             int totalPages = (int) Math.ceil((double) totalRecords / pageSize);

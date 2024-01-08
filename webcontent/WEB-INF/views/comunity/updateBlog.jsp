@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  
 
  <c:set var="css_links" value="${['assets/css/form-page.css']}" />
     <style>
@@ -83,24 +84,52 @@
 
     <!-- Quill Initialization Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var quill = new Quill('#description', {
-                modules: {
-                    toolbar: [
-                        ['bold', 'italic'],
-                        ['link', 'blockquote', 'code-block'],
-                        [{ list: 'ordered' }, { list: 'bullet' }]
-                    ]
-                },
-                placeholder: 'Type your Content',
-                theme: 'snow'
-            });
-
-            quill.on('text-change', function () {
-                document.getElementById('descriptioninput').value = quill.root.innerHTML;
-            });
+    document.addEventListener('DOMContentLoaded', function () {
+        var quill = new Quill('#description', {
+            modules: {
+                toolbar: [
+                    ['bold', 'italic'],
+                    ['link', 'blockquote', 'code-block'],
+                    [{ list: 'ordered' }, { list: 'bullet' }]
+                ]
+            },
+            placeholder: 'Type your Content',
+            theme: 'snow'
         });
-    </script>
+
+        quill.on('text-change', function () {
+            document.getElementById('descriptioninput').value = quill.root.innerHTML;
+        });
+    });
+
+    function previewImage(input) {
+        var preview = document.getElementById('imagePreview');
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            // Create an image element
+            var img = document.createElement('img');
+            img.src = reader.result;
+            img.alt = 'Image Preview';
+            img.style.maxWidth = '100%';
+            img.style.height = '100px';
+
+            // Clear previous content and append the new image
+            preview.innerHTML = '';
+            preview.appendChild(img);
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            // If no file is selected, clear the preview
+            preview.innerHTML = '';
+        }
+    }
+
+</script>
+    
 
 
     <%@include file="/WEB-INF/comps/header.jsp" %>
@@ -128,14 +157,15 @@
 
                 <div class="mb-3">
 
-                    <input <c:if test="${not empty blog}"> value="${blog.getTitle()}" </c:if> name="title" type="text"
-                    class="form-control control-lg" id="title" placeholder="Title" class="form-control form-control-lg
-                    inp "
-                    >
+                
+    <input name="title" type="text" class="form-control control-lg" id="title" placeholder="Title"
+        <c:if test="${not empty blog}">value="${blog.getTitle()}"</c:if>>
+
+                    
 
                 </div>
                 <div class="mb-3">
-                    <input name="description" id="descriptioninput" type="hidden">
+                    <input name="description" id="descriptioninput" type="hidden" <c:if test="${not empty blog}">value="${blog.getTitle()}"</c:if>>
 
                     <div name="description" class="form-control" id="description" placeholder="Description">
                         <c:if test="${not empty blog}">${blog.getDescription()}</c:if>
@@ -147,7 +177,7 @@
                 <div class="mb-3">
                     <div class="container">
                         <label class="custum-file-upload" for="image">
-                            <div class="icon">
+                            <div class="icon" id="imagePreview">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
                                     <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
                                     <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
@@ -161,8 +191,8 @@
                             <div class="text">
                                 <span>Upload Blog Image</span>
                             </div>
-                            <input name="image" type="file" class="form-control" id="image" placeholder="Image"
-                                accept="image/*">
+                            <input name="image" type="file" class="form-control" id="image" placeholder="Image" accept="image/*" onchange="previewImage(this)">
+                            
                         </label>
 
 
