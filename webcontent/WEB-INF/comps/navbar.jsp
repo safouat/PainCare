@@ -14,7 +14,7 @@
             <nav class="main-menu navbar-expand-md navbar-light">
 				<div class="collapse navbar-collapse show clearfix d-flex" id="navbarSupportedContent">
 					<ul class="navigation scroll-nav clearfix">
-						<li class="current"><a href="index.html">Home</a></li>
+						<li class="current"><a href="home">Home</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#symptoms">Symptoms</a></li>
 						<li><a href="#prevention">Prevention</a></li>
