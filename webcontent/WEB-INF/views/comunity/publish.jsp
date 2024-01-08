@@ -174,6 +174,31 @@
                 document.getElementById('descriptioninput').value = quill.root.innerHTML;
             });
         });
+        function previewImage(input) {
+            var preview = document.getElementById('imagePreview');
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                // Create an image element
+                var img = document.createElement('img');
+                img.src = reader.result;
+                img.alt = 'Image Preview';
+                img.style.maxWidth = '100%';
+                img.style.height = '100px';
+
+                // Clear previous content and append the new image
+                preview.innerHTML = '';
+                preview.appendChild(img);
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                // If no file is selected, clear the preview
+                preview.innerHTML = '';
+            }
+        }
     </script>
 
 
@@ -220,8 +245,11 @@
                 </div>
                 <div class="mb-3">
                     <div class="container">
-                        <label class="custum-file-upload" for="image">
-                            <div class="icon">
+                       
+
+                     
+                          <label class="custum-file-upload" for="image">
+                            <div class="icon" id="imagePreview">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
                                     <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
                                     <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
@@ -233,11 +261,10 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <span>Upload blog Image</span>
+                                <span>Upload Blog Image</span>
                             </div>
-                            <input name="image" type="file" class="form-control" id="image" placeholder="Image"
-                                accept="image/*">
-
+                            <input name="image" type="file" class="form-control" id="image" placeholder="Image" accept="image/*" onchange="previewImage(this)">
+                            
                         </label>
 
 
