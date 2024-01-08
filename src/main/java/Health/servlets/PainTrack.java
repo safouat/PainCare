@@ -122,7 +122,7 @@ public class PainTrack extends HttpServlet {
 			if(!worsePain.equals("")) painTrackParamDAO.create(painTrackID, "worse_pain", mapParamValues("worse_pain", worsePain));
 			if(!feelings.equals(""))  painTrackParamDAO.create(painTrackID, "feelings",   mapParamValues("feelings",   feelings));
 			
-			response.sendRedirect("home");
+			response.sendRedirect("profile");
 		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
 			response.setStatus(500);

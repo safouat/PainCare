@@ -20,7 +20,7 @@
                         <a href="track_pain" <c:if test="${activePage eq 'pain_track'}">class="active"</c:if> href="#">Pain Track</a>
                     </li>
                     <li class="m-3">
-                        <a href="manage_blogs" <c:if test="${activePage eq 'blogs'}">class="active"</c:if> href="#">Manage Blogs</a>
+                        <a href="UserBlog?id=${userBean.getID()}" <c:if test="${activePage eq 'blogs'}">class="active"</c:if> href="#">Manage Blogs</a>
                     </li>
                 </ul>
             </div>

@@ -16,7 +16,7 @@
             <h6>Track pain</h6>
             <p>Explore your pain journey</p>
         </a>
-        <a href="blogs" class="dashboard-action col p-3 m-3 text-success border border-success rounded cursor-pointer shadow-sm">
+        <a href="UserBlog?id=${userBean.getID()}" class="dashboard-action col p-3 m-3 text-success border border-success rounded cursor-pointer shadow-sm">
             <i class="far fa-newspaper fa-3x mb-3"></i>
             <h6>Browse blogs</h6>
             <p>Expand your knowlege by browsing some health blogs</p>

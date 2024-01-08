@@ -29,17 +29,23 @@ public class PainTrackDaoImpl implements PainTrackDAO {
     @Override
     public int create(int level, int user_id) throws SQLException {
     	Connection conn = daoFactory.getConnection();
-    	String SQL = "INSERT INTO paintracks (level, user_id) VALUES(?, ?);";
-    	PreparedStatement statement = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+    	String deleteSQL = "DELETE FROM paintracks WHERE date = (CURRENT_DATE);";
+    	String createSQL = "INSERT INTO paintracks (level, user_id) VALUES(?, ?);";
     	
-    	statement.setInt(1, level);
-    	statement.setInt(2, user_id);
+    	PreparedStatement deleteStatement = conn.prepareStatement(deleteSQL);
+    	PreparedStatement createStatement = conn.prepareStatement(createSQL, Statement.RETURN_GENERATED_KEYS);
     	
-    	statement.executeUpdate();
-    	ResultSet generatedRow = statement.getGeneratedKeys();
+    	createStatement.setInt(1, level);
+    	createStatement.setInt(2, user_id);
+    	
+    	deleteStatement.execute();
+    	
+    	createStatement.executeUpdate();
+    	ResultSet generatedRow = createStatement.getGeneratedKeys();
     	int id = generatedRow.next() ? generatedRow.getInt(1) : null;
     	
-    	statement.close();
+    	deleteStatement.close();
+    	createStatement.close();
     	conn.close();
     	
     	return id;

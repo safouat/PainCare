@@ -22,14 +22,14 @@ import User.UserDaoImpl;
 @WebServlet("/publish")
 @MultipartConfig
 public class Publish extends HttpServlet {
-	private static final String WEB_CONTENT_DIR   = "C:/Users/A_El_Kaimouni/eclipse-workspace/PainCareWorkShop/webcontent/";
 	private static final String BLOGS_IMAGES_DIR = "assets/blogs-images/";
 	private static final long serialVersionUID = 1L;
+	private DAOFactory daoFactory;
 	private UserDaoImpl userDAO;
 	private BlogDaoImpl blogDAO;
 	
 	public void init() throws ServletException {
-		DAOFactory daoFactory = DAOFactory.getInstance();
+		this.daoFactory = DAOFactory.getInstance();
 		this.userDAO = daoFactory.getUserDAO();
 		this.blogDAO = daoFactory.getBlogDAO();
 	}
@@ -49,10 +49,10 @@ public class Publish extends HttpServlet {
         return null;
     }
     
-    private static String savePart(Part image) {
+    private String savePart(Part image) {
 		long id = System.currentTimeMillis();
 		String ext = getMeidaExt(image);
-		String uploadPath = WEB_CONTENT_DIR + BLOGS_IMAGES_DIR + id + "." + ext;
+		String uploadPath = this.daoFactory.WEB_CONTENT_FOLDER + BLOGS_IMAGES_DIR + id + "." + ext;
 				
         try (InputStream input = image.getInputStream();
              OutputStream output = new FileOutputStream(uploadPath)) {

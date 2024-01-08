@@ -159,4 +159,14 @@
     <servlet-name>Profile</servlet-name>
     <url-pattern>/Profile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserBlog</display-name>
+    <servlet-name>UserBlog</servlet-name>
+    <servlet-class>Blog.servlets.UserBlog</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserBlog</servlet-name>
+    <url-pattern>/UserBlog</url-pattern>
+  </servlet-mapping>
 </web-app>

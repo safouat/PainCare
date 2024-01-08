@@ -26,14 +26,13 @@ import User.UserDaoImpl;
 @WebServlet("/update_profile")
 @MultipartConfig
 public class Update extends HttpServlet {
-	private static final String WEB_CONTENT_DIR   = "C:/Users/HP/eclipse-workspace/PainCare-main/webcontent/";
 	private static final String AVATARS_DIR = "assets/avatars/";
 	private static final long serialVersionUID = 1L;
 	private UserDaoImpl userDAO;
-	
+	private DAOFactory daoFactory;
 	
 	public void init() throws ServletException {
-		DAOFactory daoFactory = DAOFactory.getInstance();
+		this.daoFactory = DAOFactory.getInstance();
 		this.userDAO = daoFactory.getUserDAO();
 	}
 	
@@ -56,10 +55,10 @@ public class Update extends HttpServlet {
         return null;
     }
     
-    private static String savePart(Part image) {
+    private String savePart(Part image) {
 		long id = System.currentTimeMillis();
 		String ext = getMeidaExt(image);
-		String uploadPath = WEB_CONTENT_DIR + AVATARS_DIR + id + "." + ext;
+		String uploadPath = this.daoFactory.WEB_CONTENT_FOLDER + AVATARS_DIR + id + "." + ext;
 				
         try (InputStream input = image.getInputStream();
              OutputStream output = new FileOutputStream(uploadPath)) {

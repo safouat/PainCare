@@ -12,7 +12,8 @@ CREATE TABLE users (
 CREATE TABLE paintracks (
     id INT AUTO_INCREMENT PRIMARY KEY,
     level INT NOT NULL,
-    user_id INT NOT NULL
+    user_id INT NOT NULL,
+    date DATE DEFAULT (CURRENT_DATE)
 );
 
 -- Create PainTrackParam
@@ -51,20 +52,20 @@ CREATE TABLE comments (
 
 
 -- Add foreign key constraints to the tables
-ALTER TABLE paintracks
-ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE paintracks ADD CONSTRAINT paintracks_users
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
-ALTER TABLE paintrackparams
-ADD FOREIGN KEY (paintrack_id) REFERENCES paintracks(id);
+ALTER TABLE paintrackparams ADD CONSTRAINT paintrackparams_paintracks
+FOREIGN KEY (paintrack_id) REFERENCES paintracks(id) ON DELETE CASCADE;
 
-ALTER TABLE diagnostics
-ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE diagnostics ADD CONSTRAINT diagnostics_users
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
-ALTER TABLE blogs
-ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE blogs ADD CONSTRAINT blogs_users
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
-ALTER TABLE comments
-ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE comments ADD CONSTRAINT comments_users
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
-ALTER TABLE comments
-ADD FOREIGN KEY (blog_id) REFERENCES blogs(id);
+ALTER TABLE comments ADD CONSTRAINT comments_blogs
+FOREIGN KEY (blog_id) REFERENCES blogs(id) ON DELETE CASCADE;

@@ -23,15 +23,19 @@ public class DAOFactory {
     private static final String PROPERTY_DRIVER   = "driver";
     private static final String PROPERTY_USERNAME = "username";
     private static final String PROPERTY_PASSWORD = "password";
+    private static final String PROPERTY_WEB_CONTENT_FOLDER = "web_content_folder";
     
     private String url;
     private String username;
     private String password;
     
-    public DAOFactory(String url, String username, String password) {
+    public String WEB_CONTENT_FOLDER;
+    
+    public DAOFactory(String url, String username, String password, String WEB_CONTENT_FOLDER) {
     	this.url = url;
         this.username = username;
         this.password = password;
+        this.WEB_CONTENT_FOLDER = WEB_CONTENT_FOLDER;
     }
 
     public static DAOFactory getInstance() {
@@ -50,6 +54,7 @@ public class DAOFactory {
 			String url = properties.getProperty( PROPERTY_URL );
 			String username = properties.getProperty( PROPERTY_USERNAME );
 			String password = properties.getProperty( PROPERTY_PASSWORD );
+			String web_content_folder = properties.getProperty(PROPERTY_WEB_CONTENT_FOLDER);
 			
 	        try {
 	            Class.forName( driver );
@@ -57,7 +62,7 @@ public class DAOFactory {
 	            throw new DAOFactoryException( "The target driver is not exist.", e );
 	        }
 	        
-	        DAOFactory instance = new DAOFactory( url, username, password );
+	        DAOFactory instance = new DAOFactory( url, username, password, web_content_folder );
 	        return instance;
 	        
 		} catch (IOException e) {

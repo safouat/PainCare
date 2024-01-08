@@ -4,7 +4,7 @@
 
 <%@include file="/WEB-INF/comps/dashboard/header.jsp" %>
 
-<div class="app-form-cnt container p-3">
+<div class="container app-form-cnt" style="padding: 3em 10em">
 
 	<form id="pain-form" action="" method="POST">
         <h1 class="h3 mb-3">Track Pain</h1>
@@ -16,32 +16,30 @@
             <div class="col-6">
                 <div class="mb-3 pain-field">
                     <input type="hidden" name="locations" />
-                    <p class="mb-3" data-toggle="collapse" data-target="#collapseOne">Pain Locations : </p>
-                    <div id="collapseOne" class="collapse show bg-white p-3 rounded" data-parent="#pain-form">
-                        <div class="m-3">
-                            <input type="checkbox" id="pl1">
-                            <label for="pl1">Abdomen</label>
-                        </div>
-                        <div class="m-3">
-                            <input type="checkbox" id="pl2">
-                            <label for="pl2">Back</label>
-                        </div>
-                        <div class="m-3">
-                            <input type="checkbox" id="pl3">
-                            <label for="pl3">Chest</label>
-                        </div>
-                        <div class="m-3">
-                            <input type="checkbox" id="pl4">
-                            <label for="pl4">Head</label>
-                        </div>
-                        <div class="m-3">
-                            <input type="checkbox" id="pl5">
-                            <label for="pl5">Neck</label>
-                        </div>
-                        <div class="m-3">
-                            <input type="checkbox" id="pl6">
-                            <label for="pl6">Hips</label>
-                        </div>
+                    <p class="mb-3">Pain Locations : </p>
+                    <div class="m-3">
+                        <input type="checkbox" id="pl1">
+                        <label for="pl1">Abdomen</label>
+                    </div>
+                    <div class="m-3">
+                        <input type="checkbox" id="pl2">
+                        <label for="pl2">Back</label>
+                    </div>
+                    <div class="m-3">
+                        <input type="checkbox" id="pl3">
+                        <label for="pl3">Chest</label>
+                    </div>
+                    <div class="m-3">
+                        <input type="checkbox" id="pl4">
+                        <label for="pl4">Head</label>
+                    </div>
+                    <div class="m-3">
+                        <input type="checkbox" id="pl5">
+                        <label for="pl5">Neck</label>
+                    </div>
+                    <div class="m-3">
+                        <input type="checkbox" id="pl6">
+                        <label for="pl6">Hips</label>
                     </div>
                 </div>
             </div>
@@ -141,11 +139,7 @@
             </div>
         </div>
 		
-        
-        
-        
-		
-		<button type="submit" class="my-3 btn btn-primary block w-100">Submit</button>
+		<button type="submit" class="theme-btn position-fixed" style="bottom: 1em; right: 2em;">Submit</button>
 	</form>
 	
 </div>
