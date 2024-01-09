@@ -132,3 +132,9 @@ input#title {
 .upload-button:active {
     background-color: #1f8c4b;
 }
+img.UpdateImage {
+    width: 148%;
+    height: 100px;
+}
+
+

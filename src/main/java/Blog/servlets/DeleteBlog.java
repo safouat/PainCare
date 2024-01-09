@@ -20,10 +20,12 @@ public class DeleteBlog extends HttpServlet {
 	private UserDaoImpl userDAO;
 	private BlogDaoImpl blogDAO;
 	
+	
 	public void init() throws ServletException {
 		DAOFactory daoFactory = DAOFactory.getInstance();
 		this.userDAO = daoFactory.getUserDAO();
 		this.blogDAO = daoFactory.getBlogDAO();
+		
 	}
 	
     public DeleteBlog() {
