@@ -47,50 +47,15 @@ Project Structure
 
 
 
-Aincare WebApp
-
-Aincare is a Java EE web application designed to provide users with a platform to manage their profiles, post blogs, comment on posts, and even perform self-diagnosis while keeping track of their health evolution.
-Getting Started
-
-To use the project, follow the steps below:
-
-    Create the Database:
-        Navigate to the src/main/java/database/ directory.
-        Execute the schema.sql file in your terminal to create the necessary database structure.
-
-    bash
-
-    $ cd src/main/java/database/
-    $ cat schema.sql | mysql -u your_username -p
-
-    Modify dao.properties:
-        After creating the database, modify the dao.properties file to ensure the correct database connection.
-
-    Adjust WebContent Directory:
-        Update the build path to include the WebContent directory.
-        In the deployment assembly, select Add Folder and choose the WebContent directory. This directory contains essential files like web.xml, JSP views, and JavaScript files.
-
-    Explore Package Structure:
-        The project is structured into packages, each serving a specific purpose.
-            user Package:
-                UserServlet.java: Manages user-related functionalities.
-                UserBean.java: Java bean for user-related data.
-                UserDAO.java: Data Access Object for user operations.
-            blog Package:
-                BlogServlet.java: Handles blog-related functionalities.
-                BlogBean.java: Java bean for blog-related data.
-                BlogDAO.java: Data Access Object for blog operations.
-            comment Package:
-                CommentServlet.java: Manages comment-related functionalities.
-                CommentBean.java: Java bean for comment-related data.
-                CommentDAO.java: Data Access Object for comment operations.
 
 Usage
 
 Once the setup is complete, explore the various features offered by Aincare through the user interface. You can manage your profile, write blogs, comment on posts, and perform self-diagnosis with health evolution tracking.
 Project Structure
 
-plaintext
+   plaintext
+
+
 
 src
 │
@@ -118,8 +83,6 @@ src
 │               └── web.xml
 ├── ...
 ├── ...
-
-
 
 Contributors
 
