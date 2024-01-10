@@ -61,10 +61,10 @@ src
 │
 ├── main
 │   └── java
-│       └── user
-│           ├── UserServlet.java
-│           ├── UserBean.java
-│           ├── UserDAO.java
+│       └── profile
+│           ├── ProfileServlet.java
+│           ├── ProfileBean.java
+│           ├── ProfileDAO.java
 │       └── blog
 │           ├── BlogServlet.java
 │           ├── BlogBean.java
@@ -73,6 +73,10 @@ src
 │           ├── CommentServlet.java
 │           ├── CommentBean.java
 │           ├── CommentDAO.java
+│       └── diagnosis
+│           ├── DiagnosisServlet.java
+│           ├── DiagnosisBean.java
+│           ├── DiagnosisDAO.java
 │       └── ...
 │   └── webapp
 │       └── WebContent
@@ -83,6 +87,7 @@ src
 │               └── web.xml
 ├── ...
 ├── ...
+
 
 Contributors
 
