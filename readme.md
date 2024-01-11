@@ -39,7 +39,8 @@ To use the project, follow the steps below:
             - `Servlets`: Facilitates pain diagnosis and tracking.
             - `DiagnosticBean.java`: Java bean for diagnosis-related data.
             - `DiagnosticDAO.java`: Data Access Object for diagnosis operations.
-
+            - `PainTrackBean.java`: Java bean for PainTrack-related data.
+            - `PainTrackDAO.java`: Data Access Object for PainTrack operations.
 
 ## Usage
 
