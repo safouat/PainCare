@@ -14,13 +14,20 @@
             <nav class="main-menu navbar-expand-md navbar-light">
 				<div class="collapse navbar-collapse show clearfix d-flex" id="navbarSupportedContent">
 					<ul class="navigation scroll-nav clearfix">
-						<li class="current"><a href="home">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#symptoms">Symptoms</a></li>
-						<li><a href="#prevention">Prevention</a></li>
-						<li><a href="#faq">FAQ</a></li>
-						<li><a href="blogs">Blogs</a></li>
-                        <li>
+						<li <c:if test="${empty activePage}">class="current"</c:if> ><a href="home#home">Home</a></li>
+
+                        <c:if test="${empty activePage}">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#symptoms">Symptoms</a></li>
+                            <li><a href="#prevention">Prevention</a></li>
+                        </c:if>
+						
+                        
+
+						<li <c:if test="${activePage eq 'faq'}">class="current"</c:if>><a href="faq#faq">FAQ</a></li>
+                        <li <c:if test="${activePage eq 'articles'}">class="current"</c:if>><a href="articles#articles">Articles</a></li>
+						<li <c:if test="${activePage eq 'blogs'}">class="current"</c:if>><a href="blogs#blogs">Blogs</a></li>
+                        <li <c:if test="${not empty activePage}">style="margin-left: 10em"</c:if>>
                             <c:if test="${not empty userBean}">
                                 <div>
                                     <button class=" btn dropdown-toggle p-0" data-toggle="dropdown" style="outline: none !important;box-shadow: none !important;"

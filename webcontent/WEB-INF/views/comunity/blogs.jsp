@@ -2,6 +2,8 @@
 
 <%@include file="/WEB-INF/comps/header.jsp" %>
 
+<c:set var="activePage" value="blogs" />
+
 <%@include file="/WEB-INF/comps/navbar.jsp" %>
 
 <section class="page-title centred">
@@ -9,7 +11,7 @@
         <div class="content-box">
             <h1>Blogs</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="/DiagnosticAI/index.jsp">Home</a></li>
+                <li><a href="home">Home</a></li>
                 <li>Blogs </li>
             </ul>
         </div>

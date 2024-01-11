@@ -2,6 +2,14 @@ body {
     width: 100vw !important;
 }
 
+.news-section {
+    padding: 75px 0 !important;
+}
+
+.main-header .outer-box {
+    padding: 0px 100px !important;
+}
+
 .theme-btn-icon {
     padding: .75em;
     color: #eee !important;

@@ -11,7 +11,7 @@
 }
 </style>
 <!-- banner-section -->
-<section class="banner-section">
+<section class="banner-section" id="home">
 	<div class="anim-icon">
 		<div class="icon icon-1 rotate-me"
 			style="background-image: url(assets/images/icons/anim-icon-1.png);"></div>
@@ -400,8 +400,39 @@
 </section>
 <!-- faq-section end -->
 
+
+
+<!-- article-section -->
+<section class="news-section" id="articles">
+	<div class="auto-container">
+		<div class="row clearfix">
+			<div class="col-lg-6 col-md-12 col-sm-12 content-column">
+				<div class="content-box">
+					<div class="sec-title">
+						<h6>Articles</h6>
+						<h2>Get the detailed info on diffrenet endometriosis subjects</h2>
+					</div>
+					<div class="text">
+						<p>Discover a trove of articles on endometriosis insights,
+							treatments, and personal stories. Gain valuable knowledge and
+							support.</p>
+					</div>
+					<div class="btn-box my-3">
+						<a href="articles" class="theme-btn ">See Articles</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-12 col-sm-12 faq-column">
+				<img src="assets\images\articlehome.png" />
+			</div>
+		</div>
+	</div>
+</section>
+<!-- article-section end -->
+
+
 <!-- news-section -->
-<section class="news-section">
+<section class="news-section" id="blogs">
 	<div class="anim-icon">
 		<div class="icon icon-1 rotate-me"
 			style="background-image: url(assets/images/);"></div>
@@ -418,31 +449,36 @@
 			</h2>
 		</div>
 		<div class="row clearfix">
-		
+
 			<c:forEach var="blog" items="${listOfBlogs}">
 				<div class="col-lg-4 col-md-6 col-sm-12 news-block  container">
-                    <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                        data-wow-duration="1500ms">
-                        <div class="inner-box">
-                            <figure class="image-box blog-image">
-                                <a href="blog?id=${blog.getID()}">
-                                    <img src="${blog.getImage()}" />
-                                </a>
-                            </figure>
-                            <div class="lower-content">
+					<div class="news-block-one wow fadeInUp animated animated"
+						data-wow-delay="00ms" data-wow-duration="1500ms">
+						<div class="inner-box">
+							<figure class="image-box blog-image">
+								<a href="blog?id=${blog.getID()}"> <img
+									src="${blog.getImage()}" />
+								</a>
+							</figure>
+							<div class="lower-content">
 
-                                <h3><a href="blog-details.html">${blog.getTitle()}</a></h3>
-                                <ul class="post-info clearfix">
-                                    <li><img src="${blog.getUserImage()}" />${blog.getUserName()} </li>
-                                    <li>${blog.getDate().toString()}</li>
+								<h3>
+									<a href="blog-details.html">${blog.getTitle()}</a>
+								</h3>
+								<ul class="post-info clearfix">
+									<li><img src="${blog.getUserImage()}" />${blog.getUserName()}
+									</li>
+									<li>${blog.getDate().toString()}</li>
 
-                                </ul>
-                                <p></p>
-                                <div class="btn-box"><a href="Blog?id=${blog.getID()}">See Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+								</ul>
+								<p></p>
+								<div class="btn-box">
+									<a href="Blog?id=${blog.getID()}">See Details</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</c:forEach>
 
 		</div>
@@ -505,7 +541,8 @@
 					<div class="col-lg-3 col-md-6 col-sm-12 footer-column">
 						<div class="logo-widget footer-widget">
 							<figure class="footer-logo">
-								<a href="index.html"><img style="height: 60px" src="assets/images/logo-full.png" alt=""></a>
+								<a href="index.html"><img style="height: 60px"
+									src="assets/images/logo-full.png" alt=""></a>
 							</figure>
 							<div class="text">
 								<p>The best way to prevent and slow down transmission is be
@@ -578,7 +615,8 @@
 			<div class="bottom-inner clearfix">
 				<div class="copyright pull-left">
 					<p>
-						<a href="index.html">PainCare</a> &copy; Project done by a groupe of ENSIAS students IDSIT second year
+						<a href="index.html">PainCare</a> &copy; Project done by a groupe
+						of ENSIAS students IDSIT second year
 					</p>
 				</div>
 				<ul class="footer-nav pull-right">
