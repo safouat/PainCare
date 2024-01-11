@@ -123,7 +123,7 @@ public class Update extends HttpServlet {
 		try {
 			userDAO.update(bean);
 			
-			response.sendRedirect("home");
+			response.sendRedirect("profile");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
