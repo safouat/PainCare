@@ -14,6 +14,7 @@ import Blog.BlogDaoImpl;
 import Blog.CommentBean;
 import Blog.CommentDaoImpl;
 import Database.DAOFactory;
+import User.UserBean;
 import User.UserDaoImpl;
 
 @WebServlet("/blog")
@@ -36,7 +37,7 @@ public class Blog extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			
+			 UserBean userBean = userDAO.auth(request);
 			String id = request.getParameter("id");
 			 request.setAttribute("blogs", blogDAO.three());
 			BlogBean blog = blogDAO.one(Integer.parseInt(id));
@@ -48,9 +49,10 @@ public class Blog extends HttpServlet {
 			
 			ArrayList<CommentBean> comments = commentDAO.blogComments(Integer.parseInt(id));
 			
+			
 			request.setAttribute("blog", blog);
 			request.setAttribute("comments", comments);
-			
+			request.setAttribute("userBean", userBean);
 			getServletContext().getRequestDispatcher("/WEB-INF/views/comunity/blog.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();

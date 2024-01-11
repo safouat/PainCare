@@ -49,3 +49,9 @@ input {
               background-color: var(--main-color);
               border-color: var(--main-color);
           }
+          
+ img.UpdateImage {
+    width: 148%;
+    height: 100px;
+}
+

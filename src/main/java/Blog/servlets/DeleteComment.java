@@ -43,13 +43,13 @@ public class DeleteComment extends HttpServlet {
 		}
 		
 		String comment_id = request.getParameter("comment_id");
-		String blog_id = request.getParameter("blog_id");
+		
 		
 		try {
 			CommentBean comment = commentDAO.one(Integer.parseInt(comment_id));
 			
 			if(comment == null) {
-				response.sendRedirect("blog?id=" + blog_id);
+				response.sendRedirect("blog?id=" + comment.getBlogID());
 				return;
 			}
 			
@@ -60,7 +60,7 @@ public class DeleteComment extends HttpServlet {
 			
 			commentDAO.delete(Integer.parseInt(comment_id));
 			
-			response.sendRedirect("blog?id=" + blog_id);
+			response.sendRedirect("blog?id=" + comment.getBlogID());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
