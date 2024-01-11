@@ -8,9 +8,9 @@ To use the project, follow the steps below:
 
 1. **Create the Database:**
 
-    -Create the  database 
-    - Navigate to the `src/main/java/database/` directory.
-    - copy the `schema.sql` file in your terminal to create the necessary database structure.
+    
+    - Create the Database 
+    - Navigate to the `src/main/java/database/` directory. Copy the `schema.sql` file in your terminal to create the necessary database structure.
 
    
 
