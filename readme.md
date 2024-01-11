@@ -35,10 +35,11 @@ To use the project, follow the steps below:
        
             - `CommentBean.java`: Java bean for comment-related data.
             - `CommentDAO.java`: Data Access Object for comment operations.
-        - **Diagnosis Package:**
-            - `DiagnosisServlet.java`: Facilitates pain diagnosis and tracking.
-            - `DiagnosisBean.java`: Java bean for diagnosis-related data.
-            - `DiagnosisDAO.java`: Data Access Object for diagnosis operations.
+        - **Health Package:**
+            - `Servlets`: Facilitates pain diagnosis and tracking.
+            - `DiagnosticBean.java`: Java bean for diagnosis-related data.
+            - `DiagnosticDAO.java`: Data Access Object for diagnosis operations.
+
 
 ## Usage
 
