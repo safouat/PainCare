@@ -36,5 +36,38 @@
 <body class="boxed_wrapper">
 
     <!-- preloader -->
-   
+    <div class="preloader">
+        <div id="handle-preloader" class="handle-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+                <div class="txt-loading">
+                    <span data-text-preloader="P" class="letters-loading">
+                        P
+                    </span>
+                    <span data-text-preloader="a" class="letters-loading">
+                        a
+                    </span>
+                    <span data-text-preloader="i" class="letters-loading">
+                        i
+                    </span>
+                    <span data-text-preloader="n" class="letters-loading">
+                        n
+                    </span>
+                    <span data-text-preloader="C" class="letters-loading" style="color:black">
+                        C
+                    </span>
+                   
+                    <span data-text-preloader="a" class="letters-loading" style="color:black">
+                        a
+                    </span>
+                    <span data-text-preloader="r" class="letters-loading" style="color:black">
+                        r
+                    </span>
+                      <span data-text-preloader="E" class="letters-loading" style="color:black">
+                        e
+                    </span>
+                </div>
+            </div>  
+        </div>
+    </div>
     <!-- preloader end -->

@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="css_links" value="${['assets/css/blogs.css']}" />
+
 <style>
     .sidebar-page-container .sidebar .sidebar-post .post-inner .post .post-thumb img {
         width: 100%;
@@ -15,8 +16,10 @@
 
 <%@include file="/WEB-INF/comps/header.jsp" %>
 
+<c:set var="activePage" value="x" />
+
 <%@include file="/WEB-INF/comps/navbar.jsp" %>
-<!-- Modal -->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -89,7 +92,7 @@
                                     <div class="comment-inner">
                                         <div class="info">
                                        <c:choose>
-                                         <c:when test="${userBean.getName().equals(comment.getUserName())}">
+                                         <c:when test="${userBean.getID() eq comment.getUserID()}">
                                                <div class="deleteUser d-flex justify-content-between align-items-center">
                                                   <h4>${comment.getUserName()}</h4>
                                                   <a href="#" class="action-icon theme-btn-icon mr-3" data-toggle="modal" data-target="#exampleModal" onclick="openModalWithData(${comment.getID()},${blog.getID()})">
@@ -138,8 +141,6 @@
                                         </div>
                                     </div>
                                 </form>
-
-
                             </c:when>
                             <c:otherwise>
                                 <form action="/PainCare/Login" method="get" id="contact-form"
@@ -193,6 +194,7 @@
     </div>
 </section>
 
+
 <footer class="main-footer">
 	<div class="shape-layer"
 		style="background-image: url(assets/images/shape/shape-3.png);"></div>
@@ -211,7 +213,8 @@
 					<div class="col-lg-3 col-md-6 col-sm-12 footer-column">
 						<div class="logo-widget footer-widget">
 							<figure class="footer-logo">
-								<a href="index.html"><img style="height: 60px" src="assets/images/logo-full.png" alt=""></a>
+								<a href="index.html"><img style="height: 60px"
+									src="assets/images/logo-full.png" alt=""></a>
 							</figure>
 							<div class="text">
 								<p>The best way to prevent and slow down transmission is be
@@ -284,7 +287,8 @@
 			<div class="bottom-inner clearfix">
 				<div class="copyright pull-left">
 					<p>
-						<a href="index.html">PainCare</a> &copy; Project done by a groupe of ENSIAS students IDSIT second year
+						<a href="index.html">PainCare</a> &copy; Project done by a groupe
+						of ENSIAS students IDSIT second year
 					</p>
 				</div>
 				<ul class="footer-nav pull-right">
@@ -295,6 +299,7 @@
 		</div>
 	</div>
 </footer>
+
 <script>
 function openModalWithData(data1,data2) {
     // Set the data-blog-id attribute

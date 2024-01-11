@@ -1,8 +1,6 @@
 (function($) {
 	
 	"use strict";
-
-
 	
 	//Update Header Style and Scroll to Top
 	function headerStyle() {
@@ -80,29 +78,29 @@
 		wow.init();
 	}
 
-	//Contact Form Validation
-	if($('#contact-form').length){
-		$('#contact-form').validate({
-			rules: {
-				username: {
-					required: true
-				},
-				email: {
-					required: true,
-					email: true
-				},
-				phone: {
-					required: true
-				},
-				subject: {
-					required: true
-				},
-				message: {
-					required: true
-				}
-			}
-		});
-	}
+	// //Contact Form Validation
+	// if($('#contact-form').length){
+	// 	$('#contact-form').validate({
+	// 		rules: {
+	// 			username: {
+	// 				required: true
+	// 			},
+	// 			email: {
+	// 				required: true,
+	// 				email: true
+	// 			},
+	// 			phone: {
+	// 				required: true
+	// 			},
+	// 			subject: {
+	// 				required: true
+	// 			},
+	// 			message: {
+	// 				required: true
+	// 			}
+	// 		}
+	// 	});
+	// }
 
 	//Fact Counter + Text Count
 	if($('.count-box').length){
@@ -286,12 +284,7 @@
    When document is loaded, do
    ========================================================================== */
 	
-	$(window).on('load', function() {
 
-		$('#handle-preloader').fadeOut();
-        $('.preloader').delay(350).fadeOut('slow');
-        $('body').delay(350).css({'overflow':'visible'});
-	});
 
 	
 

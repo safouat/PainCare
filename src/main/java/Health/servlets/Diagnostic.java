@@ -17,28 +17,43 @@ import User.UserDaoImpl;
 @WebServlet("/diagnostic")
 public class Diagnostic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Object[][] questionsBank = {
-	    {"When do you start your period ?", new String[]{
+	public static final Object[][] questionsBank = {
+	    {"radio", "When do you start your period ?", new String[]{
     		"Before 11 years old",
     		"Above 11 years old"
-	    }},
-	    {"Your menstrual cycle length average ?", new String[]{
+	    }, 1},
+	    {"radio", "Your menstrual cycle length average ?", new String[]{
     		"Less than 27 days",
     		"More than 27 days",
     		"Not sure"
-    	}},
-	    {"Do you have a familly history of endometriosis ?", new String[]{
+    	}, 1},
+	    {"radio", "Do you have a familly history of endometriosis ?", new String[]{
     		"Yes",
     		"No"
-    	}},
-	    {"Did you give birth ?", new String[]{
+    	}, 1},
+	    {"radio", "Did you give birth ?", new String[]{
     		"Yes",
     		"No"
-    	}},
-	    {"Do you have trouble getting pregnant ?", new String[]{
+    	}, 3},
+	    {"radio", "Do you have trouble getting pregnant ?", new String[]{
     		"Yes",
     		"No"
-    	}}
+    	}, 1},
+	    {"number", "Body mass index: calculate your BMI", new String[]{
+    		"Enter your weight in kg",
+    		"Enter your height in cm"
+    	}, 3},
+	    {"radio", "What is your abdominal/pelvic pain intensity ?", new String[]{
+    		"0-2",
+    		"3-5",
+    		"6-8",
+    		"9-10"
+    	}, 1},
+	    {"checkbox", "What do you experience abdominal or pelvic pain ?", new String[]{
+    		"Related to period",
+    		"Related to ovulation",
+    		"Unrelated to period and ovulation"
+    	}, 2},
 	};
 	private UserDaoImpl userDAO;
 	private DiagnosticDaoImpl diagnosticDAO;

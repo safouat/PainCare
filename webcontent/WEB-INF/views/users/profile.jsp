@@ -31,9 +31,9 @@
                         <h6>Last score</h6>
                         <p>Update your score regulary</p>
                     </div>
-                    <bold class="mx-3">${diagnosticBean.calcResult()}</bold>
+                    <bold class="mx-3 text-center">${diagnosticBean.calcResult()} <br /> ${Math.round(diagnosticBean.calcScore())} <span style="color: #777"> / 100 </span></bold>
                 </div>
-            </c:if>
+            </c:if> 
             <div class="card shadow-sm mt-3">
                 <canvas height="460" class="mt-3" id="pain-level-chart"></canvas>
             </div>

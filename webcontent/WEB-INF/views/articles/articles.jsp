@@ -66,7 +66,7 @@
 			<div class="inner-box h-100">
 				<figure class="image-box blog-image">
 					<a href="article?num=2"> <img
-						src="assets\images\articles\le-reve.72442.jpg" />
+						src="assets\images\articles\article2.jpg" />
 					</a>
 				</figure>
 				<div class="lower-content">
@@ -92,14 +92,13 @@
 			<div class="inner-box h-100">
 				<figure class="image-box blog-image">
 					<a href="article?num=3"> <img
-						src="assets\images\articles\le-reve.72442.jpg" />
+						src="assets\images\articles\article3.png" />
 					</a>
 				</figure>
 				<div class="lower-content">
 
 					<h3>
-						<a href="article?num=3">They Call It a Womens Disease. She
-							Wants to Redefine It.</a>
+						<a href="article?num=3">They Call It a Womens Disease. She Wants to Redefine It.</a>
 					</h3>
 					<p class="art_desc">Linda Griffith's M.I.T. Center for
 						Gynepathology Research, distinct from typical women's disease
@@ -119,7 +118,7 @@
 			<div class="inner-box h-100">
 				<figure class="image-box blog-image">
 					<a href="article?num=4"> <img
-						src="assets\images\articles\le-reve.72442.jpg" />
+						src="assets\images\articles\article4.jpg" />
 					</a>
 				</figure>
 				<div class="lower-content">

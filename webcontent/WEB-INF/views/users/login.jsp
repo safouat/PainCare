@@ -24,11 +24,15 @@
 			<label for="password">Password :</label>
 			<input name="password" type="password" class="form-control" id="password" placeholder="Password">
 		</div>
-			<div class="more-btn centred">
-				<button class="theme-btn" type="submit">
-					Sign in
-				</button>
-			</div>
+		<div class="mb-3 d-flex align-items-center">
+			<input class="mx-1" name="remember" type="checkbox" id="remember">
+			<label for="remember" class="m-0">Remember me</label>
+		</div>
+		<div class="more-btn centred">
+			<button class="theme-btn" type="submit">
+				Sign in
+			</button>
+		</div>
 
 		</form>
 	

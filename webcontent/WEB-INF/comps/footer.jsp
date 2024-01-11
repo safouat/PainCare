@@ -17,5 +17,13 @@
         <!-- main-js -->
         <script src="assets/js/script.js"></script>
 
+        <script>
+            $(window).on('load', function() {
+                $('#handle-preloader').fadeOut();
+                $('.preloader').delay(350).fadeOut('slow');
+                $('body').delay(350).css({'overflow':'visible'});
+            });
+        </script>
+
     </body>
 </html>

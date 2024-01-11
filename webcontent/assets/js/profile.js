@@ -39,7 +39,7 @@ const data = {
     labels: dates.map(d => new Date(d).toLocaleDateString()),
     datasets: [
         {
-            label: 'Pain Evolustion',
+            label: 'Pain Evolustion Last 7 Days',
             data: datapoints,
             fill: false,
             cubicInterpolationMode: 'monotone',

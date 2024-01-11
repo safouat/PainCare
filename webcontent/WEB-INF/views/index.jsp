@@ -92,7 +92,7 @@
 			<div class="col-lg-6 col-md-12 col-sm-12 image-column">
 				<figure class="image-box wow slideInLeft animated animated"
 					data-wow-delay="00ms" data-wow-duration="1500ms">
-					<img src="assets\images\Endometriosis3.svg" alt="">
+					<img src="assets\images\Endometriosis3.jpg" alt="">
 				</figure>
 			</div>
 			<div class="col-lg-6 col-md-12 col-sm-12 content-column">
@@ -449,7 +449,6 @@
 			</h2>
 		</div>
 		<div class="row clearfix">
-
 			<c:forEach var="blog" items="${listOfBlogs}">
 				<div class="col-lg-4 col-md-6 col-sm-12 news-block  container">
 					<div class="news-block-one wow fadeInUp animated animated"
@@ -480,7 +479,9 @@
 					</div>
 				</div>
 			</c:forEach>
-
+		</div>
+		<div class="btn-box text-center m-3">
+			<a href="blogs" class="theme-btn m-3">Read More Blogs</a>
 		</div>
 	</div>
 </section>

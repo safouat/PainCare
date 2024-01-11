@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import Database.DAOFactory;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class UserDaoImpl implements UserDAO {
 	private DAOFactory daoFactory;
@@ -63,14 +64,19 @@ public class UserDaoImpl implements UserDAO {
     @Override
     public UserBean login(String email, String password) throws SQLException {
     	Connection conn = daoFactory.getConnection();
-    	String SQL = "SELECT * FROM users WHERE email = ? AND password = ?;";
+    	String SQL = "SELECT * FROM users WHERE email = ?;";
     	PreparedStatement statement = conn.prepareStatement(SQL);
     	
     	statement.setString(1, email);
-    	statement.setString(2, password);
     	
     	ResultSet res = statement.executeQuery();
     	UserBean bean = res.next() ? getBean(res) : null;
+    	
+    	if(bean != null) {
+    		BCrypt.Result verifyResult = BCrypt.verifyer().verify(password.toCharArray(), res.getString("password"));
+
+    		if(!verifyResult.verified) return null;
+    	}
     	
     	res.close();
     	statement.close();
@@ -85,9 +91,11 @@ public class UserDaoImpl implements UserDAO {
     	String SQL = "INSERT INTO users (name, email, password) VALUES (?, ?, ?);";
     	PreparedStatement statement = conn.prepareStatement(SQL);
     	
+    	String hashedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+    	
     	statement.setString(1, username);
     	statement.setString(2, email);
-    	statement.setString(3, password);
+    	statement.setString(3, hashedPassword);
     	
     	statement.execute();
     	
