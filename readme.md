@@ -7,6 +7,7 @@ PainCare is a Java EE web application designed to assist users in managing their
 To use the project, follow the steps below:
 
 1. **Create the Database:**
+
     -Create the  database 
     - Navigate to the `src/main/java/database/` directory.
     - copy the `schema.sql` file in your terminal to create the necessary database structure.
@@ -24,15 +25,14 @@ To use the project, follow the steps below:
 4. **Explore Package Structure:**
     - The project is structured into packages, each serving a specific purpose.
         - **User Package:**
-            - `ProfileServlet.java`: Manages user profile functionalities.
-            - `ProfileBean.java`: Java bean for user profile data.
-            - `ProfileDAO.java`: Data Access Object for profile operations.
+            - `Servlets`: Manages user profile functionalities.
+            - `UserBean.java`: Java bean for user profile data.
+            - `UserDAO.java`: Data Access Object for profile operations.
         - **Blog Package:**
-            - `BlogServlet.java`: Handles blog-related functionalities.
+            - `Servlet.java`: Handles blog-related and comment-related  functionalities.
             - `BlogBean.java`: Java bean for blog-related data.
             - `BlogDAO.java`: Data Access Object for blog operations.
-        - **Comment Package:**
-            - `CommentServlet.java`: Manages comment-related functionalities.
+       
             - `CommentBean.java`: Java bean for comment-related data.
             - `CommentDAO.java`: Data Access Object for comment operations.
         - **Diagnosis Package:**
