@@ -4,7 +4,12 @@
     <side class="dashboard-side-bar bg-white">
         <div class="user-info d-flex flex-column h-100">
             <div class="user-avatar text-center border-bottom  p-3">
-                <img style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="${userBean.getAvatar()}" class="logo" alt="Logo">
+                <c:if test="${not empty userBean.getAvatar()}">
+                    <img style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="${userBean.getAvatar()}" class="logo" alt="Logo">
+                </c:if>
+                <c:if test="${empty userBean.getAvatar()}">
+                    <img style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;" src="assets/images/logo.png" class="logo" alt="Logo">
+                </c:if>
                 <p>${userBean.getName()}</p>
                 <a href="update_profile">Update Profile</a>
             </div>

@@ -71,7 +71,7 @@
     <div class="sticky-header">
         <div class="outer-box clearfix">
             <div class="logo-box pull-left">
-                <figure class="logo"><a href="index.html"><img class="p-0" style="height: 60px" src="assets/images/logo-full.png"
+                <figure class="logo"><a href="home"><img class="p-0" style="height: 60px" src="assets/images/logo-full.png"
 											class="logo" alt="Logo"></a></figure>
             </div>
             <div class="menu-area pull-right">
@@ -101,11 +101,11 @@
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                    <li><a href="home"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="home"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="home"><span class="fab fa-pinterest-p"></span></a></li>
+                    <li><a href="home"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="home"><span class="fab fa-youtube"></span></a></li>
                 </ul>
             </div>
         </nav>

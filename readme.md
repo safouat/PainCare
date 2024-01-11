@@ -7,12 +7,8 @@ PainCare is a Java EE web application designed to assist users in managing their
 To use the project, follow the steps below:
 
 1. **Create the Database:**
-
-    
     - Create the Database 
     - Navigate to the `src/main/java/database/` directory. Copy the `schema.sql` file in your terminal to create the necessary database structure.
-
-   
 
 2. **Modify `dao.properties`:**
     - After creating the database, modify the `dao.properties` file to ensure the correct database connection.
@@ -21,26 +17,6 @@ To use the project, follow the steps below:
 3. **Adjust `webcontent` Directory:**
     - Update the build path to include the `webcontent` directory.
     - In the deployment assembly, select Add Folder and choose the `webcontent` directory. This directory contains essential files like `web.xml`, JSP views, and JavaScript files.
-
-4. **Explore Package Structure:**
-    - The project is structured into packages, each serving a specific purpose.
-        - **User Package:**
-            - `Servlets`: Manages user profile functionalities.
-            - `UserBean.java`: Java bean for user profile data.
-            - `UserDAO.java`: Data Access Object for profile operations.
-        - **Blog Package:**
-            - `Servlet.java`: Handles blog-related and comment-related  functionalities.
-            - `BlogBean.java`: Java bean for blog-related data.
-            - `BlogDAO.java`: Data Access Object for blog operations.
-       
-            - `CommentBean.java`: Java bean for comment-related data.
-            - `CommentDAO.java`: Data Access Object for comment operations.
-        - **Health Package:**
-            - `Servlets`: Facilitates pain diagnosis and tracking.
-            - `DiagnosticBean.java`: Java bean for diagnosis-related data.
-            - `DiagnosticDAO.java`: Data Access Object for diagnosis operations.
-            - `PainTrackBean.java`: Java bean for PainTrack-related data.
-            - `PainTrackDAO.java`: Data Access Object for PainTrack operations.
 
 ## Usage
 
