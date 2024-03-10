@@ -1,9 +1,8 @@
-# FROM maven:3.9.6-ibmjava AS build
-# WORKDIR /app
-
-# COPY pom.xml .
-
-# RUN mvn clean package
-
 FROM tomcat
-COPY /target/your-application-1.0.0.war /usr/local/tomcat/webapps/PainCare.war
+WORKDIR /app
+# RUN mkdir -p /usr/local/tomcat/webapps/PainCare/assets/avatars/
+# RUN mkdir -p /usr/local/tomcat/webapps/PainCare/assets/blogs-images/
+
+COPY /config/server.xml /usr/local/tomcat/conf/
+
+COPY /build/PainCare.war /usr/local/tomcat/webapps/ROOT.war
