@@ -34,7 +34,7 @@ public class Diagnostic extends HttpServlet {
 	    {"radio", "Did you give birth ?", new String[]{
     		"Yes",
     		"No"
-    	}, 3},
+    	}, 1},
 	    {"radio", "Do you have trouble getting pregnant ?", new String[]{
     		"Yes",
     		"No"
@@ -49,11 +49,48 @@ public class Diagnostic extends HttpServlet {
     		"6-8",
     		"9-10"
     	}, 1},
-	    {"checkbox", "What do you experience abdominal or pelvic pain ?", new String[]{
+	    {"checkbox", "When do you experience abdominal or pelvic pain ?", new String[]{
     		"Related to period",
     		"Related to ovulation",
     		"Unrelated to period and ovulation"
-    	}, 2},
+    	}, 1},
+	    {"radio", "Severity of pain during intercourse ?", new String[]{
+    		"0-2",
+    		"3-5",
+    		"6-8",
+    		"9-10"
+    	}, 1},
+	    {"checkbox", "What makes your pain worse ?", new String[]{
+    		"Orgasm",
+    		"Bowel movement",
+    		"Full bladder",
+    		"Urination",
+    		"Not related to anything"
+    	}, 1},
+	    {"radio", "Duration of period ?", new String[]{
+    		"1-7 days",
+    		"More than 7 days"
+    	}, 1},
+	    {"radio", "Nature of periods ?", new String[]{
+    		"Heavy",
+    		"Moderate",
+    		"Light"
+    	}, 1},
+	    {"checkbox", "What is your menstrual cycle pattern ?", new String[]{
+    		"Regular",
+    		"Irregular",
+    		"Bleeding or spotting between periods"
+    	}, 1},
+	    {"checkbox", " Do you have ?", new String[]{
+    		"Blood in your stool",
+    		"Diarrhea",
+    		"Constipation",
+    		"Abdominal Bloating"
+    	}, 1},
+	    {"radio", "Have you ever been victim of physical abuse or sexual abuse ?", new String[]{
+    		"Yes",
+    		"No",
+    	}, 1},
 	};
 	private UserDaoImpl userDAO;
 	private DiagnosticDaoImpl diagnosticDAO;

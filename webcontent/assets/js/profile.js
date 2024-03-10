@@ -18,7 +18,15 @@ const doughnutChartConfig = (dataObject, title = "") => ({
             title: {
                 display: false,
                 text: title
-            }
+            },
+            datalabels: {
+	            formatter: (value, ctx) => {
+	                const sum = Object.values(dataObject).reduce((a,b) => a+b);
+	                const percentage = (value*100 / sum).toFixed(0)+"%";
+	                return percentage;
+	            },
+	            color: '#fff',
+	        },
         }
     },
 });
@@ -44,13 +52,13 @@ const data = {
             fill: false,
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
-            borderColor: "#fa859a"
+            backgroundColor: "#fa859a"
         }
     ]
 };
 
 new Chart(document.getElementById('pain-level-chart'), {
-    type: 'line',
+    type: 'bar',
     data: data,
     options: {
         responsive: true,
@@ -73,6 +81,14 @@ new Chart(document.getElementById('pain-level-chart'), {
                 suggestedMin: 0,
                 suggestedMax: 10
             }
-        }
+        },
+        plugins: {
+			datalabels: {
+	            formatter: (value, ctx) => {
+	                return "";
+	            },
+	            
+	        },
+		}
     },
 })

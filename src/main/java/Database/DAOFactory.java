@@ -17,7 +17,7 @@ import User.UserDaoImpl;
 
 
 public class DAOFactory {
-	private static final String CONFIG_LOCATION   = "/Database/dao.properties";
+	private static final String CONFIG_LOCATION   = "dao.properties";
 	
     private static final String PROPERTY_URL      = "url";
     private static final String PROPERTY_DRIVER   = "driver";

@@ -25,11 +25,11 @@
     <div class="row mb-3">
         <div class="col">
             <c:if test="${not empty diagnosticBean}">
-                <div class="profile-latest-score d-flex align-items-center rounded border p-3 bg-white shadow-sm">
+                <div class="profile-latest-score d-flex align-items-center rounded border p-3 bg-white shadow-sm <c:if test='${diagnosticBean.calcScore() < 50}'>success</c:if>">
                     <i class="fas fa-exclamation-triangle fa-2x mr-3"></i>
                     <div class="flex-grow-1">
                         <h6>Last score</h6>
-                        <p>Update your score regulary</p>
+                        <p style="font-size:.9em">Update your score regulary and browse your <a href="diagnostics">history</a>.</p>
                     </div>
                     <bold class="mx-3 text-center">${diagnosticBean.calcResult()} <br /> ${Math.round(diagnosticBean.calcScore())} <span style="color: #777"> / 100 </span></bold>
                 </div>
@@ -72,8 +72,12 @@
 </div>
 
 <script src="assets/js/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
 
 <script>
+	Chart.register(ChartDataLabels)
+
     // pain evolution
     const datapoints = JSON.parse(`${painArray}`).reverse();
     const dates = JSON.parse(`${painDatesArray}`).reverse();

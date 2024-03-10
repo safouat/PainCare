@@ -28,7 +28,8 @@ CREATE TABLE paintrackparams (
 CREATE TABLE diagnostics (
     id INT AUTO_INCREMENT PRIMARY KEY,
     answers VARCHAR(255) DEFAULT "",
-    user_id INT NOT NULL
+    user_id INT NOT NULL,
+    date DATE DEFAULT (CURRENT_DATE)
 );
 
 -- Create Blog table

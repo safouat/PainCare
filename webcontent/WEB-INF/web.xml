@@ -189,4 +189,14 @@
     <servlet-name>Article</servlet-name>
     <url-pattern>/Article</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Diagnostics</display-name>
+    <servlet-name>Diagnostics</servlet-name>
+    <servlet-class>Health.servlets.Diagnostics</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Diagnostics</servlet-name>
+    <url-pattern>/Diagnostics</url-pattern>
+  </servlet-mapping>
 </web-app>

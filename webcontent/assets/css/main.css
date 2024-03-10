@@ -40,6 +40,29 @@ body {
     color: var(--secondary-color);
 }
 
+.profile-latest-score.success {
+    border-color: var(--main-color) !important;
+    color: var(--main-color);
+}
+
+.profile-latest-score.notice {
+	background-color: var(--secondary-color) !important;
+	color: #eee !important;
+}
+
+.profile-latest-score.notice p {
+	color: #eee !important;
+}
+
+.profile-latest-score.notice h6 {
+	color: #fff !important;
+}
+
+.profile-latest-score.notice.success {
+    background-color: var(--main-color) !important;
+    color: #eee !important;
+}
+
 .blog-image {
     position: relative;
     height: 220px;

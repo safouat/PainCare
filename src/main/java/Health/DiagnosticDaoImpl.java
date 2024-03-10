@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Database.DAOFactory;
 
@@ -20,6 +21,7 @@ public class DiagnosticDaoImpl implements DiagnosticDAO {
     	bean.setID(res.getInt("id"));
     	bean.setUserID(res.getInt("user_id"));
     	bean.setAnswers(res.getString("answers"));
+    	bean.setDate(res.getDate("date"));
     	
     	return bean;
     }
@@ -54,5 +56,27 @@ public class DiagnosticDaoImpl implements DiagnosticDAO {
 		conn.close();
 		
 		return bean;
+	}
+	
+	@Override
+	public ArrayList<DiagnosticBean> all(int user_id) throws SQLException {
+        Connection conn = daoFactory.getConnection();
+        String SQL = "SELECT * FROM diagnostics WHERE user_id = ? ORDER BY id DESC LIMIT 20;";
+        
+        PreparedStatement statement = conn.prepareStatement(SQL);
+        
+        statement.setInt(1, user_id);
+        
+        ResultSet res = statement.executeQuery();
+        
+        ArrayList<DiagnosticBean> list = new ArrayList<DiagnosticBean>();
+        
+        while (res.next()) list.add(getBean(res));
+        
+        res.close();
+        statement.close();
+        conn.close();
+        
+        return list;
 	}
 }
