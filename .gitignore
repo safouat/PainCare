@@ -1,7 +1,6 @@
 /bin
 /target
 
-src/main/resources/dao.properties
 src/main/java/Database/dao.properties
 webcontent/assets/avatars
 webcontent/assets/blogs-images
