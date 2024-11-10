@@ -21,7 +21,7 @@ services:
     container_name: pain-care-server
     restart: always
     ports:
-      - 8001:8080
+      - 8002:8080
     build:
       context: .
     volumes:
